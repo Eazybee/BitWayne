@@ -11,7 +11,7 @@ const LoadingSpinner: FC<Props> & {
 
   return (
     <LoadingSpinner.Styled height={height} positionTop={positionTop} styles={styles}>
-      <div className="spinner" />
+      <div />
       <p style={textStyle}>{text}</p>
     </LoadingSpinner.Styled>
   );
@@ -27,7 +27,7 @@ LoadingSpinner.Styled = styled.div`
       position: ${positionTop ? 'relative' : 'static'};
 
 
-    .spinner {
+    div {
       display: inline-block;
       width: 25px;
       height: 25px;

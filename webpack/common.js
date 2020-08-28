@@ -21,6 +21,8 @@ module.exports = {
       '<src>': path.resolve(__dirname, '../src'),
       '<components>': path.resolve(__dirname, '../src/components'),
       '<hooks>': path.resolve(__dirname, '../src/hooks'),
+      '<helpers>': path.resolve(__dirname, '../src/helpers'),
+      '<styles>': path.resolve(__dirname, '../src/styles')
     }
   },
   plugins: [
@@ -44,9 +46,6 @@ module.exports = {
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
         loaders: ['file-loader']
-        // options: {
-        //   name: "[path][name].[ext]"
-        // }
       },
     ]
   }

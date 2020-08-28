@@ -10,6 +10,8 @@
     "paths": {
       "<components>/*": ["./src/components/*"],
       "<hooks>/*": ["./src/hooks/*"],
+      "<helpers>/*": ["./src/helpers/*"],
+      "<styles>/*": ["./src/styles/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -31,10 +33,10 @@
   ],
   "exclude": [
     "node_modules",
-    "**/*.test.ts*"
+    "test"
   ],
   "awesomeTypescriptLoaderOptions": {
-    "baseUrl": "./src",
-    "useCache": true,
+    "baseUrl": ".",
+    "useCache": true
   }
 }

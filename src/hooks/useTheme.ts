@@ -10,6 +10,7 @@ export enum ThemeMode {
 export type ThemeType = typeof defaultTheme & {
   colors: Colors;
   changeTheme: (color: ThemeMode) => void;
+  mode: ThemeMode;
 };
 
 const useTheme = () => {
@@ -22,6 +23,7 @@ const useTheme = () => {
     setTheme((t) => ({
       ...t,
       colors: color === ThemeMode.Light ? lightColors : darkColors,
+      mode: color,
     }));
   }, []);
 
@@ -31,7 +33,12 @@ const useTheme = () => {
       ...defaultTheme,
       changeTheme,
       colors: localTheme === ThemeMode.Light ? lightColors : darkColors,
+      mode: localTheme ?? ThemeMode.Dark,
     });
+
+    if (!localTheme) {
+      window.localStorage.setItem('theme', ThemeMode.Dark);
+    }
   }, [changeTheme]);
 
   return { theme };

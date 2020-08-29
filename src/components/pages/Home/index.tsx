@@ -21,8 +21,10 @@ const HomePage = () => {
 
 HomePage.Style = styled.section`
   button {
-    color: red;
-    background-color: ${({ theme }) => theme.colors?.primary};
+    ${({ theme }) => `
+      color: ${theme.colors?.textColor};
+      background-color: ${theme.colors?.primary};
+    `}
   }
 `;
 

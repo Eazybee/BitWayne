@@ -1,5 +1,7 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Route, Switch, Redirect,
+} from 'react-router-dom';
 import { css } from 'styled-components';
 import LoadingSpinner from '../ui/LoadingSpinner';
 import routeData from './data';
@@ -23,6 +25,17 @@ const Routes = () => (
         {routeData.default.map(({ exact, path, Component }) => (
           <Route key={path} exact={exact} path={path} component={Component} />
         ))}
+        <Route
+          path="*"
+          render={({ location }) => (
+            <Redirect
+              to={{
+                pathname: '/',
+                state: { from: location },
+              }}
+            />
+          )}
+        />
       </Switch>
     </Suspense>
   </Router>

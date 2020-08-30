@@ -12,6 +12,7 @@
     "start:dev": "rm -rf build && webpack-dev-server --env.mode development --open --hot"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",

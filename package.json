@@ -1,5 +1,5 @@
 {
-  "name": "modify",
+  "name": "bitwayne",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,9 +8,9 @@
     "lint:fix": "prettier-eslint  --write $PWD/'src/**/*.{ts,tsx}'",
     "test": "jest",
     "build:prod": "rm -rf build && webpack --env.mode production",
-    "prestart": "npm run build:prod",
     "start:dev": "rm -rf build && webpack-dev-server --env.mode development --open --hot"
   },
+  "sideEffects": false,
   "dependencies": {
     "dotenv": "^8.2.0",
     "file-loader": "^6.0.0",
@@ -72,17 +72,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Eazybee/Modify.git"
+    "url": "git+https://github.com/Eazybee/BitWayne.git"
   },
   "keywords": [
     "react",
     "styled-component",
     "typescript"
   ],
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Eazybee/Modify/issues"
+    "url": "https://github.com/Eazybee/BitWayne/issues"
   },
-  "homepage": "https://github.com/Eazybee/Modify#readme",
+  "homepage": "https://github.com/Eazybee/BitWayne#readme",
   "author": "Ezekiel Ilori"
 }

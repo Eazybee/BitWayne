@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import styled from 'styled-components';
 import { isDevelopment } from '<helpers>/constants';

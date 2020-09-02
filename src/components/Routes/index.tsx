@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router, Route, Switch, Redirect,
 } from 'react-router-dom';
 import { css } from 'styled-components';
-import LoadingSpinner from '../ui/LoadingSpinner';
+import LoadingSpinner from '../ui/LoadingSpinner/LoadingSpinner';
 import routeData from './data';
 
 const Routes = () => (

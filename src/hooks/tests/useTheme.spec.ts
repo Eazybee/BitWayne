@@ -10,7 +10,7 @@ describe('useTheme', () => {
     const { result } = renderHook(() => useTheme());
     const { theme } = result.current as { theme: ThemeType };
 
-    expect(theme.mode).toEqual(ThemeMode.Dark);
+    expect(theme.mode).toEqual(ThemeMode.Light);
   });
 
 
@@ -18,31 +18,31 @@ describe('useTheme', () => {
     const { result } = renderHook(() => useTheme());
 
     const { theme: initialTheme } = result.current as { theme: ThemeType };
-    expect(initialTheme.mode).toEqual(ThemeMode.Dark);
-
-    act(() => {
-      initialTheme.changeTheme(ThemeMode.Light);
-    });
-
-    const { theme: updatedTheme } = result.current as { theme: ThemeType };
-    expect(updatedTheme.mode ).toEqual(ThemeMode.Light);
+    expect(initialTheme.mode).toEqual(ThemeMode.Light);
 
     act(() => {
       initialTheme.changeTheme(ThemeMode.Dark);
     });
 
+    const { theme: updatedTheme } = result.current as { theme: ThemeType };
+    expect(updatedTheme.mode ).toEqual(ThemeMode.Dark);
+
+    act(() => {
+      initialTheme.changeTheme(ThemeMode.Light);
+    });
+
     const { theme: anotherUpdatedTheme } = result.current as { theme: ThemeType };
-    expect(anotherUpdatedTheme.mode ).toEqual(ThemeMode.Dark);
+    expect(anotherUpdatedTheme.mode ).toEqual(ThemeMode.Light);
   });
 
   it('should not update the theme', () => {
     const { result } = renderHook(() => useTheme());
     const { theme: initialTheme } = result.current as { theme: ThemeType };
 
-    expect(initialTheme.mode).toEqual(ThemeMode.Dark);
+    expect(initialTheme.mode).toEqual(ThemeMode.Light);
 
     act(() => {
-      initialTheme.changeTheme(ThemeMode.Dark);
+      initialTheme.changeTheme(ThemeMode.Light);
     })
 
     const { theme: updatedTheme } = result.current as { theme: ThemeType };
@@ -52,12 +52,12 @@ describe('useTheme', () => {
   });
 
   it('should update theme mode from local storage', () => {
-    window.localStorage.setItem('theme', ThemeMode.Light);
+    window.localStorage.setItem('theme', ThemeMode.Dark);
 
     const { result } = renderHook(() => useTheme());
     const { theme: initialTheme } = result.current as { theme: ThemeType };
 
-    expect(initialTheme.mode).toEqual(ThemeMode.Light);
+    expect(initialTheme.mode).toEqual(ThemeMode.Dark);
   })
 });
 

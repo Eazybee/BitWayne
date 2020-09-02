@@ -29,7 +29,7 @@
   },
   "experimentalDecorators": true,
   "include": [
-    "src"
+    "src", "test/fileMock.ts", "src/custom.d.ts"
   ],
   "exclude": [
     "node_modules",

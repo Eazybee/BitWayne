@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render,  } from '<helpers>/tests/testUtils';
-import ErrorBoundary from '.';
+import ErrorBoundary from './ErrorBoundary';
 
 
 describe('Loading Spinner', () => {

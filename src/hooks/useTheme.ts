@@ -32,12 +32,12 @@ const useTheme = () => {
     setTheme({
       ...defaultTheme,
       changeTheme,
-      colors: localTheme === ThemeMode.Light ? lightColors : darkColors,
-      mode: localTheme ?? ThemeMode.Dark,
+      colors: localTheme === ThemeMode.Dark ? darkColors : lightColors,
+      mode: localTheme ?? ThemeMode.Light,
     });
 
     if (!localTheme) {
-      window.localStorage.setItem('theme', ThemeMode.Dark);
+      window.localStorage.setItem('theme', ThemeMode.Light);
     }
   }, [changeTheme]);
 

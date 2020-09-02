@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen, waitFor,  } from '<helpers>/tests/testUtils';
-import LoadingSpinner from '.';
+import LoadingSpinner from './LoadingSpinner';
 
 
 describe('Loading Spinner', () => {
@@ -19,10 +19,10 @@ describe('Loading Spinner', () => {
     expect(getByText('Uploading')).toBeTruthy();
   });
 
-  it('should display position of 1', () => {
+  it('should display position of 1px', () => {
     const { getByText } = render(<LoadingSpinner positionTop={1} />);
     expect(getByText('Loading').parentElement).toHaveStyle(`
-      top: 1;
+      top: 1px;
       position: relative;
     `);
   });

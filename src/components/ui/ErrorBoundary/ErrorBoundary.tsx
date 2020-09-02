@@ -13,9 +13,7 @@ const FallBack = styled.div`
   p {
     font-size: 1.2rem;
     font-weight: bold;
-    ${({ theme }) => `
-      color: ${theme.colors?.textColor};
-    `}
+    color: white;
   }
 `;
 

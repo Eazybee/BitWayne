@@ -5,7 +5,7 @@ const config = {
     '^.+\\.[jt]sx?$': 'ts-jest'
   },
   moduleNameMapper: {
-    '\\.(css)$': '<rootDir>/test/config/assetTransformer.js',
+    "\\.(jpg|jpeg|png|svg)$": "<rootDir>/test/fileMock.js",
     '^<src>/(.*)$': '<rootDir>/src/$1',
     '^<pages>/(.*)$': '<rootDir>/src/components/pages/$1',
     '^<components>/(.*)$': '<rootDir>/src/components/$1',

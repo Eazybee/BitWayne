@@ -23,8 +23,7 @@
     }
   },
   "ignorePatterns": [
-    "**/*.js",
-    "**/*.spec.ts*"
+    "**/*.js"
   ],
   "rules": {
     "import/prefer-default-export": "off",

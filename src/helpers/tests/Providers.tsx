@@ -7,14 +7,11 @@ const Providers = ({ children }: { children: JSX.Element }) => {
 
   return (
     <>
-      {theme.colors
-    && (
-    <ThemeProvider theme={theme}>
-      <>
-        {children}
-      </>
-    </ThemeProvider>
-    )}
+      {theme.colors && (
+        <ThemeProvider theme={theme}>
+          <>{children}</>
+        </ThemeProvider>
+      )}
     </>
   );
 };

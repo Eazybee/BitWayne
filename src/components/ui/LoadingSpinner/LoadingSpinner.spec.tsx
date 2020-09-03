@@ -1,8 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render, screen, waitFor,  } from '<helpers>/tests/testUtils';
+import { render, screen, waitFor } from '<helpers>/tests/testUtils';
 import LoadingSpinner from './LoadingSpinner';
-
 
 describe('Loading Spinner', () => {
   it('should render with default props and styles', async () => {

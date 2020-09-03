@@ -1,10 +1,9 @@
 import { css } from 'styled-components';
 import { ThemeType } from '<hooks>/useTheme';
 
-
 const styles = css`
   ${({ theme: { colors } }: { theme: ThemeType }) => `
-    padding: 3rem 0;
+    padding: 6rem .5em;
     background-color: ${colors.lightPurple};
     > div {
       display: flex;
@@ -22,7 +21,7 @@ const styles = css`
         align-items: center;
         text-align: center;
 
-        img {
+        div.LazyLoad, img {
           padding-bottom: 1.5rem;
           width: 5rem;
           height: 5rem;

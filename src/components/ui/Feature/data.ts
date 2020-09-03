@@ -1,7 +1,7 @@
-import Thumb from '../../../assests/icons/thumbs.svg';
-import Box from '../../../assests/icons/box.svg';
-import Web from '../../../assests/icons/web.svg';
-import Secure from '../../../assests/icons/secure.svg';
+import Thumb from '<assests>/icons/thumbs.svg';
+import Box from '<assests>/icons/box.svg';
+import Web from '<assests>/icons/web.svg';
+import Secure from '<assests>/icons/secure.svg';
 
 const data = [
   {

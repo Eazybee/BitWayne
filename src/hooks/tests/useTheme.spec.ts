@@ -1,4 +1,4 @@
-import { renderHook, act, RenderHookResult} from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react-hooks';
 import useTheme, { ThemeType, ThemeMode } from '../useTheme';
 
 describe('useTheme', () => {
@@ -13,7 +13,6 @@ describe('useTheme', () => {
     expect(theme.mode).toEqual(ThemeMode.Light);
   });
 
-
   it('should update the theme', () => {
     const { result } = renderHook(() => useTheme());
 
@@ -25,14 +24,14 @@ describe('useTheme', () => {
     });
 
     const { theme: updatedTheme } = result.current as { theme: ThemeType };
-    expect(updatedTheme.mode ).toEqual(ThemeMode.Dark);
+    expect(updatedTheme.mode).toEqual(ThemeMode.Dark);
 
     act(() => {
       initialTheme.changeTheme(ThemeMode.Light);
     });
 
     const { theme: anotherUpdatedTheme } = result.current as { theme: ThemeType };
-    expect(anotherUpdatedTheme.mode ).toEqual(ThemeMode.Light);
+    expect(anotherUpdatedTheme.mode).toEqual(ThemeMode.Light);
   });
 
   it('should not update the theme', () => {
@@ -43,12 +42,11 @@ describe('useTheme', () => {
 
     act(() => {
       initialTheme.changeTheme(ThemeMode.Light);
-    })
+    });
 
     const { theme: updatedTheme } = result.current as { theme: ThemeType };
 
     expect(updatedTheme).toEqual(initialTheme);
-
   });
 
   it('should update theme mode from local storage', () => {
@@ -58,7 +56,5 @@ describe('useTheme', () => {
     const { theme: initialTheme } = result.current as { theme: ThemeType };
 
     expect(initialTheme.mode).toEqual(ThemeMode.Dark);
-  })
+  });
 });
-
-

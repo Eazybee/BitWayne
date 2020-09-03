@@ -16,6 +16,12 @@ body {
   font-family: 'Poppins', 'Roboto', Arial, sans-serif;
   font-size: 16px;
 }
+
+@media screen  and (max-width:506px){
+  body {
+    font-size: 14px;
+  }
+}
 `;
 
 export default GlobalStyle;

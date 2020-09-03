@@ -1,13 +1,12 @@
 import { css } from 'styled-components';
 import { ThemeType } from '<hooks>/useTheme';
 
-
 export type Props = {
   styles: {
     toggle: boolean;
     hidden: boolean;
     background: string;
-  },
+  };
 };
 
 type PropAndTheme = Props & { theme: ThemeType };
@@ -119,10 +118,16 @@ export const firstDivStyles = css<PropAndTheme>`
           border-radius: 5px;
           padding: .3em .5em;
           width: 2em;
-          ${styles.toggle && `
+          height: 3rem;
+          top: .2rem;
+
+          ${
+  styles.toggle
+            && `
             background-color: ${colors.secondary};
             color: white;
-          `}
+          `
+}
           path {
             color: #ffffff !important;
           }
@@ -135,11 +140,13 @@ export const firstDivStyles = css<PropAndTheme>`
         transition: height .4s;
         overflow: hidden;
         width: 100%;
-        ${styles.toggle
+        ${
+  styles.toggle
     ? `visibility: visible;
           height: 10em;
           `
-    : 'height: 0;'}
+    : 'height: 0;'
+}
         ${styles.hidden ? 'visibility: hidden;' : ''}
         ul{
           flex-flow: column nowrap;
@@ -171,20 +178,20 @@ export const firstDivStyles = css<PropAndTheme>`
 
 export const headerStyles = css<PropAndTheme>`
   ${({ theme: { colors }, styles }: PropAndTheme) => `
+  @media screen  and (max-width:1226px) {
+    padding: .5rem  1rem;
+  }
     @media screen  and (max-width:880px) {
-      padding: .5rem  2rem;
 
-      & > div:nth-child(2) {
+      & div > div:nth-child(2) {
         display: none;
       }
     }
 
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    flex-flow: row wrap;
-    padding: 1.5rem 7rem;
-    overflow: hidden;
+    padding: 1.5rem 0;
     transition: .5s linear;
     position: fixed;
     width: 100%;
@@ -192,7 +199,15 @@ export const headerStyles = css<PropAndTheme>`
     background-color: ${colors.primary};
     ${styles.background === '#ffffff' ? 'box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.1)' : ''};
 
-    & > div:nth-child(2) {
+    & > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-flow: row wrap;
+      transition: .5s linear;
+      width: 74.4em;
+    }
+    & > div > div:nth-child(2) {
       a {
         background: ${colors.secondary};
         border-radius: 5px;

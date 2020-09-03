@@ -10,14 +10,13 @@ const App = () => {
 
   return (
     <React.StrictMode>
-      {theme?.colors
-      && (
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <ErrorBoundary>
-          <Routes />
-        </ErrorBoundary>
-      </ThemeProvider>
+      {theme?.colors && (
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <ErrorBoundary>
+            <Routes />
+          </ErrorBoundary>
+        </ThemeProvider>
       )}
     </React.StrictMode>
   );

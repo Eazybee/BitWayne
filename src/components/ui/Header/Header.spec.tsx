@@ -4,10 +4,13 @@ import { MemoryRouter } from 'react-router-dom';
 import { render, fireEvent } from '<helpers>/tests/testUtils';
 import Header from './Header';
 
-
 describe('Header', () => {
   it('should render', async () => {
-    const { getByText } = render(<MemoryRouter><Header /></MemoryRouter>);
+    const { getByText } = render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>,
+    );
 
     expect(getByText('LoadAm')).toBeTruthy();
     expect(getByText('Secure and fast exchanger')).toBeTruthy();
@@ -18,9 +21,12 @@ describe('Header', () => {
     expect(getByText('Contact')).toBeTruthy();
   });
 
-
   it('menu button shou work', async () => {
-    const { getByTitle, getByRole } = render(<MemoryRouter><Header /></MemoryRouter>);
+    const { getByTitle } = render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>,
+    );
 
     const menuBtn = getByTitle('show menu');
     expect(menuBtn).toBeTruthy();
@@ -32,4 +38,4 @@ describe('Header', () => {
 
     expect(menuBtn).toHaveAttribute('title', 'show menu');
   });
-  })
+});

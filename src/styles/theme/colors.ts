@@ -7,6 +7,9 @@ export const lightColors = {
   divider: '#1D1D25',
   lightPurple: '#f7f4fd',
   deepPurple: '#3A1576',
+  iconBackground: '#A183D2',
+  instructionBg: '#8598d6',
+  btnShadow: '0px 10px 10px rgba(0, 0, 0, 0.25)',
 };
 
 export type Colors = typeof lightColors;

@@ -6,7 +6,6 @@ import Title from '../Title/Title';
 import styles from './styled.css';
 import data from './data';
 
-
 const Feature: FC<{}> & {
   Styled: StyledComponent<'section', any, {}>;
 } = () => (
@@ -15,10 +14,7 @@ const Feature: FC<{}> & {
     <div>
       {data.map(({ imgSrc, heading, subHeading }) => (
         <div className="card" key={heading}>
-          <LazyLoad
-            debounce={false}
-            offsetVertical={300}
-          >
+          <LazyLoad debounce={false} offsetVertical={300}>
             <img src={imgSrc} alt="" />
           </LazyLoad>
           <div>
@@ -31,10 +27,8 @@ const Feature: FC<{}> & {
   </Feature.Styled>
 );
 
-
 Feature.Styled = styled.section`
   ${styles}
 `;
-
 
 export default Feature;

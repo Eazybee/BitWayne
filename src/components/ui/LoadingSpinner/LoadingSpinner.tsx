@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import styled, { StyledComponent, css, FlattenSimpleInterpolation } from 'styled-components';
 import { loaderStyles } from './styled.css';
 
-
 const LoadingSpinner: FC<Props> & {
   Styled: StyledComponent<'div', any, Props>;
 } = (props: Props) => {
@@ -18,7 +17,6 @@ const LoadingSpinner: FC<Props> & {
   );
 };
 
-
 LoadingSpinner.Styled = styled.div`
   position: ${({ positionTop }: Props) => (positionTop ? 'relative' : 'static')};
   top: ${({ positionTop }: Props) => positionTop}px;
@@ -26,7 +24,6 @@ LoadingSpinner.Styled = styled.div`
   ${loaderStyles}
   ${({ styles }: Props) => styles};
 `;
-
 
 export type Props = {
   height?: number;

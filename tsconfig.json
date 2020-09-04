@@ -11,6 +11,7 @@
       "<components>/*": ["./src/components/*"],
       "<hooks>/*": ["./src/hooks/*"],
       "<helpers>/*": ["./src/helpers/*"],
+      "<assests>/*": ["./src/assests/*"],
       "<styles>/*": ["./src/styles/*"]
     },
     "allowJs": true,

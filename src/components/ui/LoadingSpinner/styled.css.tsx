@@ -1,11 +1,9 @@
 import { css } from 'styled-components';
 
-
 export const loaderStyles = css`
   text-align: center;
   vertical-align: middle;
   margin: auto;
-
 
   div {
     display: inline-block;
@@ -21,7 +19,6 @@ export const loaderStyles = css`
     animation-duration: 1.1s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-
 
     @keyframes rotate {
       from {
@@ -40,4 +37,3 @@ export const loaderStyles = css`
     line-height: 25px;
   }
 `;
-

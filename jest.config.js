@@ -12,6 +12,7 @@ const config = {
     '^<helpers>/(.*)$': '<rootDir>/src/helpers/$1',
     '^<hooks>/(.*)$': '<rootDir>/src/hooks/$1',
     '^<styles>/(.*)$': '<rootDir>/src/styles/$1',
+    '^<assests>/(.*)$': '<rootDir>/src/assests/$1',
   },
   collectCoverage: true,
   coveragePathIgnorePatterns: [

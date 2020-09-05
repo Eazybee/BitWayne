@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 import styled, { StyledComponent, css } from 'styled-components';
 import { ThemeType } from '<hooks>/useTheme';
 
-export type ButtonType = 'button' | 'reset' | 'submit';
+type ButtonType = 'button' | 'reset' | 'submit';
 
-type Props = {
+interface Props extends
+  React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   children: string;
   type: ButtonType;
-  onClick: (e?: React.FormEvent<HTMLButtonElement>) => any;
-};
+}
 
 const style = css`
   ${({ theme: { colors } }: { theme: ThemeType }) => `
@@ -18,6 +18,7 @@ const style = css`
     height: 3rem;
     border-radius: .5rem;
     box-shadow: ${colors.btnShadow};
+    cursor: pointer;
   `}
 `;
 

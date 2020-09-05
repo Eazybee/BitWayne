@@ -29,6 +29,7 @@
     "import/prefer-default-export": "off",
     "react/jsx-props-no-spreading": "off",
     "import/extensions": "off",
+    "react/require-default-props": "off",
     "no-multiple-empty-lines": [
       "error",
       { "max": 2,

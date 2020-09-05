@@ -209,7 +209,8 @@ export const headerStyles = css<PropAndTheme>`
     }
     & > div > div:nth-child(2) {
       a {
-        background: ${colors.secondary};
+        background: ${colors.deepPurple};
+        box-shadow: ${colors.btnShadow};
         border-radius: 5px;
         padding: 5px 10px;
         color: white;

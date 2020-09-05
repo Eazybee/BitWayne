@@ -9,12 +9,15 @@ const GlobalStyle = createGlobalStyle`
   text-decoration: none;
   list-style:none;
   color: #000000;
+  outline-color: #e2ff8b;
+  outline-width: 1rem;
 }
 body {
   background-color: #fafafa;
   color: #3c414d;
   font-family: 'Poppins', 'Roboto', Arial, sans-serif;
   font-size: 16px;
+  min-width: 320px;
 }
 
 @media screen  and (max-width:506px){

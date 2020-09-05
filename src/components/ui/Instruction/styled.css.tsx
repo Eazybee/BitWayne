@@ -29,7 +29,7 @@ const styles = css`
 
       .steps {
         width: 60rem;
-        margin-top: 4rem;
+        margin-top: 2rem;
 
         & > div:not(:last-child) {
           margin-bottom: .5rem;

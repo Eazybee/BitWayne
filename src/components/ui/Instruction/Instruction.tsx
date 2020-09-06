@@ -16,7 +16,7 @@ const Instruction: FC<{}> & {
         <Title color={colors.white}>How To Sell</Title>
         <div className="steps">
           {data.map((step, i: number) => (
-            <div className={i % 2 === 0 ? 'lft' : 'rgt'}>
+            <div key={step.header} className={i % 2 === 0 ? 'lft' : 'rgt'}>
               {i + 1 !== data.length ? <div className="spen" /> : null}
               <Step data={step} side={i % 2 === 0 ? Position.Left : Position.Right} />
             </div>

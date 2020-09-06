@@ -15,7 +15,7 @@ const styled = css<PropAndTheme>`
   }
   input {
     border: 1px solid #d5dae2;
-    border-radius: 5px;
+    border-radius: 7px;
     padding: .7rem .5rem;
     font-size: 1rem;
 

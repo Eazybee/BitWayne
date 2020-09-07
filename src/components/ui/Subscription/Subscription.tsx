@@ -2,13 +2,13 @@ import React, { FC, useState, useEffect } from 'react';
 // @ts-ignore
 import useFormBee from 'useformbee';
 import styled, { StyledComponent } from 'styled-components';
-import styles, { Props } from './styled.css';
+import styles from './styled.css';
 import Input from '../Input/Input';
 import Title from '../Title/Title';
 import Button from '../Button/Button';
 
-const Subscription: FC<Props> & {
-  Styled: StyledComponent<'section', any, Props>;
+const Subscription: FC<{}> & {
+  Styled: StyledComponent<'section', any, {}>;
 } = () => {
   const rules = {
     username: 'required|string',
@@ -86,7 +86,7 @@ const Subscription: FC<Props> & {
   );
 };
 
-Subscription.Styled = styled.section<Props>`
+Subscription.Styled = styled.section`
   ${styles}
 `;
 
@@ -137,8 +137,5 @@ const Content = styled.div`
     width: 100%;
   }
 `;
-
-Subscription.defaultProps = {
-};
 
 export default Subscription;

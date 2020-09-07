@@ -21,7 +21,6 @@ export const firstDivStyles = css<PropAndTheme>`
       button {
         background-color: ${colors.primary};
         display: none;
-        left: 1rem;
         position: relative;
 
         path {
@@ -98,6 +97,10 @@ export const firstDivStyles = css<PropAndTheme>`
     }
 
     @media screen  and (max-width:880px){
+
+      div {
+        margin-right: 0;
+      }
       & + div {
         display: none;
       }

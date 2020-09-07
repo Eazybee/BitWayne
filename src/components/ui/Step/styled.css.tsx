@@ -54,7 +54,7 @@ const styled = css<PropAndTheme>`
         text-align: center;
       }
       * {
-        padding: 0 .5rem;
+        padding: 0 1rem;
       }
     }
 
@@ -137,6 +137,10 @@ const styled = css<PropAndTheme>`
 
       .content{
         padding: .3rem 0;
+
+        * {
+          padding: 0 .5rem;
+        }
       }
 
       .log {

@@ -4,6 +4,8 @@ import Header from '<components>/ui/Header/Header';
 import Feature from '<components>/ui/Feature/Feature';
 import Instruction from '<components>/ui/Instruction/Instruction';
 import Subscription from '<components>/ui/Subscription/Subscription';
+import Footer from '<components>/ui/Footer/Footer';
+
 
 const HomePage = () => (
   <HomePage.Style>
@@ -12,6 +14,7 @@ const HomePage = () => (
       <Feature />
       <Instruction />
       <Subscription />
+      <Footer />
     </div>
   </HomePage.Style>
 );

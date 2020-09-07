@@ -32,13 +32,7 @@ describe('Input', () => {
 
         const setValue = (e: React.ChangeEvent<HTMLInputElement>) => setState(e.target.value);
 
-        return (
-          <Component
-            {...props}
-            onChange={setValue}
-            value={state}
-          />
-        );
+        return <Component {...props} onChange={setValue} value={state} />;
       };
 
       return Wrapper;
@@ -47,13 +41,7 @@ describe('Input', () => {
     const TestInput = withWrapper(Input);
 
     const { getByPlaceholderText } = render(
-      <TestInput
-        type="text"
-        label="Username"
-        placeholder="Eazybee"
-        onChange={() => {}}
-        value=""
-      />,
+      <TestInput type="text" label="Username" placeholder="Eazybee" onChange={() => {}} value="" />,
     );
 
     const input = getByPlaceholderText('Eazybee');

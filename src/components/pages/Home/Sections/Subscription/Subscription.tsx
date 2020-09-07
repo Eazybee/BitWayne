@@ -2,10 +2,10 @@ import React, { FC, useState, useEffect } from 'react';
 // @ts-ignore
 import useFormBee from 'useformbee';
 import styled, { StyledComponent } from 'styled-components';
-import styles from './styled.css';
-import Input from '../Input/Input';
-import Title from '../Title/Title';
-import Button from '../Button/Button';
+import styles, { contentStyles } from './styled.css';
+import Input from '<components>/ui/Input/Input';
+import Title from '<components>/ui/Title/Title';
+import Button from '<components>/ui/Button/Button';
 
 const Subscription: FC<{}> & {
   Styled: StyledComponent<'section', any, {}>;
@@ -13,10 +13,11 @@ const Subscription: FC<{}> & {
   const rules = {
     username: 'required|string',
     email: 'email',
-    mobileNo: 'min:11|max:17|regex:/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$/|required_unless:email',
+    mobileNo:
+      'min:11|max:17|regex:/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$/|required_unless:email',
   };
 
-  const [customErr, setCustomErr] = useState<{email?: string; mobileNo?: string}>({});
+  const [customErr, setCustomErr] = useState<{ email?: string; mobileNo?: string }>({});
 
   const submit = async (e: any) => {
     if (e.email === '' && e.mobileNo === '') {
@@ -38,11 +39,11 @@ const Subscription: FC<{}> & {
 
   useEffect(() => {
     setCustomErr({});
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values.email, values.mobileNo]);
 
   return (
-    <Subscription.Styled>
+    <Subscription.Styled id="subscription">
       <Title>Stay Updated</Title>
       <p>subscribe to our newsletter for rate updates and bonus</p>
       <Content>
@@ -77,7 +78,9 @@ const Subscription: FC<{}> & {
                 type="tel"
               />
             </div>
-            <div className="submitBtn"><Button type="submit">Subscribe Now</Button></div>
+            <div className="submitBtn">
+              <Button type="submit">Subscribe Now</Button>
+            </div>
           </form>
           <div />
         </div>
@@ -91,51 +94,7 @@ Subscription.Styled = styled.section`
 `;
 
 const Content = styled.div`
-  background-color: transparent;
-  width: 35rem;
-  height: 20rem;
-  perspective: 1000px;
-
-  > div {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-
-
-    > *{
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    }
-
-    form {
-
-      div.submitBtn {
-        display: flex;
-        justify-content: center;
-      }
-    }
-
-    > div {
-      background-color: dodgerblue;
-      transform: rotateY(180deg);
-    }
-  }
-
-  &:hover > div {
-    /* transform: rotateY(180deg); */
-  }
-
-  @media screen  and (max-width:604px){
-    width: 25rem;
-  }
-  @media screen  and (max-width:420px){
-    width: 100%;
-  }
+  ${contentStyles}
 `;
 
 export default Subscription;

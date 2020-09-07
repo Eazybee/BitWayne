@@ -1,9 +1,8 @@
 import { css } from 'styled-components';
 import { ThemeType } from '<hooks>/useTheme';
 
-
 const styles = css`
-  ${({ theme: { colors } }: { theme: ThemeType}) => `
+  ${({ theme: { colors } }: { theme: ThemeType }) => `
     display: flex;
     background: ${colors.secondary};
     background: linear-gradient(0deg, rgba(8,14,161,1) 15%, rgba(107,66,173,1) 75%);
@@ -34,6 +33,7 @@ const styles = css`
         &.social {
           div {
             display: flex;
+            padding: .2rem 0;
 
             a{
               margin: 0 1rem;
@@ -65,7 +65,7 @@ const styles = css`
       }
     }
   `}
-  @media screen  and (max-width:1126px){
+  @media screen  and (max-width:1199px) {
     > div {
       display: flex;
       flex-flow: column;
@@ -73,31 +73,34 @@ const styles = css`
     }
 
     div.upper {
-      > div{
-        &.contacts, &.links {
+      > div {
+        &.contacts,
+        &.links {
           padding-left: 2rem;
         }
       }
     }
   }
-  @media screen  and (max-width:900px){
+  @media screen and (max-width: 900px) {
     div.upper {
-        flex-flow: row wrap;
-      > div{
+      flex-flow: row wrap;
+      > div {
         width: 48%;
         margin-bottom: 1.2rem;
 
-        &.contacts, &.links {
+        &.contacts,
+        &.links {
           padding-left: 0rem;
         }
 
-        &.contacts, &.social {
+        &.contacts,
+        &.social {
           padding-left: 2.5rem;
         }
 
         &.social {
           div {
-            a:first-child{
+            a:first-child {
               margin: 0;
             }
           }
@@ -107,18 +110,19 @@ const styles = css`
     }
   }
 
-  @media screen  and (max-width:650px){
-    > div{
-      padding: 3rem .5rem 1rem .5rem;
+  @media screen and (max-width: 650px) {
+    > div {
+      padding: 3rem 0.5rem 1rem 0.5rem;
     }
   }
 
-  @media screen  and (max-width:562px){
+  @media screen and (max-width: 562px) {
     div.upper {
-      > div{
+      > div {
         width: 98%;
 
-        &.contacts, &.social {
+        &.contacts,
+        &.social {
           padding-left: 0;
         }
 
@@ -127,7 +131,7 @@ const styles = css`
         }
         &.social {
           div {
-            a{
+            a {
               margin: 0 0 0 1rem;
             }
           }

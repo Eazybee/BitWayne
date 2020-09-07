@@ -5,7 +5,6 @@ import LazyLoad from 'react-lazy-load';
 import Foot from '<assests>/images/foot.png';
 import styles from './styled.css';
 
-
 const Header: FC<{}> & {
   Styled: StyledComponent<'div', any, {}>;
 } = () => (
@@ -17,16 +16,14 @@ const Header: FC<{}> & {
       <div className="content">
         <h1>Providing you fast and easy process to sell giftcards</h1>
         <p>For speed and payout assurance</p>
-        <a href="# ">Start Trading Now</a>
+        <a href="# ">Sell Now</a>
       </div>
     </div>
   </Header.Styled>
 );
 
-
 Header.Styled = styled.div`
   ${styles}
 `;
-
 
 export default Header;

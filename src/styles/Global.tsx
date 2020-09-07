@@ -12,6 +12,11 @@ const GlobalStyle = createGlobalStyle`
   outline-color: #e2ff8b;
   outline-width: 1rem;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #fafafa;
   color: #3c414d;

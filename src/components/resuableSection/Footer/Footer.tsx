@@ -3,7 +3,6 @@ import styled, { StyledComponent } from 'styled-components';
 import Head from './Header/Header';
 import Foot from './Footer/Footer';
 
-
 const Footer: FC<{}> & {
   Styled: StyledComponent<'section', any, {}>;
 } = () => (
@@ -13,12 +12,10 @@ const Footer: FC<{}> & {
   </Footer.Styled>
 );
 
-
 Footer.Styled = styled.section`
   display: flex;
   flex-flow: column;
   align-items: center;
 `;
-
 
 export default Footer;

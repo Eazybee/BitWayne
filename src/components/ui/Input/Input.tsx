@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import styled, { StyledComponent } from 'styled-components';
 import styles from './styled.css';
 
-
 export interface Props
   extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   label: string;
@@ -26,7 +25,6 @@ Input.Styled = styled.div<Props>`
   ${styles}
 `;
 
-Input.defaultProps = {
-};
+Input.defaultProps = {};
 
 export default Input;

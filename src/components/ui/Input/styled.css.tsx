@@ -1,7 +1,6 @@
 import { css } from 'styled-components';
 import { ThemeType } from '<hooks>/useTheme';
 
-
 type PropAndTheme = { theme: ThemeType };
 
 const styled = css<PropAndTheme>`
@@ -11,16 +10,17 @@ const styled = css<PropAndTheme>`
   margin-bottom: 1rem;
 
   label {
-    margin-bottom: .3rem;
+    margin-bottom: 0.3rem;
   }
   input {
     border: 1px solid #d5dae2;
     border-radius: 7px;
-    padding: .7rem .5rem;
+    padding: 0.7rem 0.5rem;
     font-size: 1rem;
 
-    &::placeholder, &::-webkit-input-placeholder {
-      font-size: .8rem;
+    &::placeholder,
+    &::-webkit-input-placeholder {
+      font-size: 0.8rem;
       color: rgb(95, 95, 95);
     }
 
@@ -30,7 +30,7 @@ const styled = css<PropAndTheme>`
   }
   p {
     color: red;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 `;
 

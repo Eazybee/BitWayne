@@ -10,7 +10,7 @@ describe('Loading Spinner', () => {
 
     expect(h1).toBeTruthy();
     expect(h1.nextSibling).toHaveTextContent('For speed and payout assurance');
-    expect(h1.nextSibling?.nextSibling).toHaveTextContent('Start Trading Now');
+    expect(h1.nextSibling?.nextSibling).toHaveTextContent('Sell Now');
     expect(h1.nextSibling?.nextSibling?.nodeName).toEqual('A');
   });
 });

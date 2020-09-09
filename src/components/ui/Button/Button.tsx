@@ -4,8 +4,11 @@ import { ThemeType } from '<hooks>/useTheme';
 
 type ButtonType = 'button' | 'reset' | 'submit';
 
-interface Props extends
-  React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+interface Props
+  extends React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+  > {
   children: string;
   type: ButtonType;
 }

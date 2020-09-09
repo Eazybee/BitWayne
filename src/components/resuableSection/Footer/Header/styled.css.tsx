@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import { ThemeType } from '<hooks>/useTheme';
 
 const styles = css`
-  ${({ theme: { colors } }: { theme: ThemeType}) => `
+  ${({ theme: { colors } }: { theme: ThemeType }) => `
     display: flex;
     background: ${colors.footerBg};
     width: 100%;
@@ -100,8 +100,8 @@ const styles = css`
           padding: 3rem .5rem 1.5rem .5rem;
 
           h1 {
-            color: white;
-            text-shadow: ${colors.secondary} 1px 2px 6px;
+            color: ${colors.secondary};
+            text-shadow: ${colors.white} 1px 2px 6px;
           }
           p {
             color: ${colors.secondary};

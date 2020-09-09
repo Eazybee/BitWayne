@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 import React from 'react';
-import Header from '<components>/ui/Header/Header';
-import Feature from '<components>/ui/Feature/Feature';
-import Instruction from '<components>/ui/Instruction/Instruction';
-import Subscription from '<components>/ui/Subscription/Subscription';
-import Footer from '<components>/ui/Footer/Footer';
-
+import Header from '<components>/resuableSection/Header/Header';
+import Feature from './Sections/Feature/Feature';
+import Instruction from '<components>/pages/Home/Sections/Instruction/Instruction';
+import Subscription from '<components>/pages/Home/Sections/Subscription/Subscription';
+import Footer from '<components>/resuableSection/Footer/Footer';
+import Screen from '<components>/resuableSection/Screen/Screen';
 
 const HomePage = () => (
   <HomePage.Style>
     <Header />
-    <div style={{ paddingTop: '5rem' }}>
+    <div style={{}}>
+      <Screen />
       <Feature />
       <Instruction />
       <Subscription />

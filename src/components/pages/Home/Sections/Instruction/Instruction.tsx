@@ -1,7 +1,7 @@
 import React, { FC, useContext } from 'react';
 import styled, { StyledComponent, ThemeContext } from 'styled-components';
 import Step, { Position } from '../Step/Step';
-import Title from '../Title/Title';
+import Title from '../../../../ui/Title/Title';
 import { ThemeType } from '<hooks>/useTheme';
 import styles from './styled.css';
 import data from './data';

@@ -36,6 +36,10 @@ export const firstDivStyles = css<PropAndTheme>`
           display: flex;
           flex-flow: row;
 
+          img {
+            width: 2rem;
+          }
+
           h1{
             color: ${colors.secondary};
             background: linear-gradient(0deg, ${colors.secondary} 0%, ${colors.primary} 100%);
@@ -44,6 +48,7 @@ export const firstDivStyles = css<PropAndTheme>`
             -webkit-text-fill-color: transparent;
             display: flex;
             align-items: center;
+            font-size: 1.2rem;
 
             &::before {
               content: '';
@@ -194,13 +199,13 @@ export const headerStyles = css<PropAndTheme>`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.5rem 0;
+    padding: .5rem 0;
     transition: .5s linear;
     position: fixed;
     width: 100%;
     z-index: 2;
-    background-color: ${colors.primary};
-    ${styles.background === '#ffffff' ? 'box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.1)' : ''};
+    background-color: ${styles.background};
+    ${styles.background === colors.primary ? 'box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.1)' : ''};
 
     & > div {
       display: flex;

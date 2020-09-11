@@ -6,18 +6,25 @@ import Instruction from '<components>/pages/Home/Sections/Instruction/Instructio
 import Subscription from '<components>/pages/Home/Sections/Subscription/Subscription';
 import Footer from '<components>/resuableSection/Footer/Footer';
 import Screen from '<components>/resuableSection/Screen/Screen';
+import Modal from '<components>/ui/Modal/Modal';
+import Chat from '<components>/resuableSection/Chat/Chat';
 
 const HomePage = () => (
-  <HomePage.Style>
-    <Header />
-    <div style={{}}>
-      <Screen />
-      <Feature />
-      <Instruction />
-      <Subscription />
-      <Footer />
-    </div>
-  </HomePage.Style>
+  <>
+    <HomePage.Style>
+      <Header />
+      <div style={{}}>
+        <Screen />
+        <Feature />
+        <Instruction />
+        <Subscription />
+        <Footer />
+      </div>
+    </HomePage.Style>
+    <Modal>
+      <Chat />
+    </Modal>
+  </>
 );
 
 HomePage.Style = styled.main``;

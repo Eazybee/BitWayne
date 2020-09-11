@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import styled, { StyledComponent, css } from 'styled-components';
+import React from 'react';
+import styled, { css } from 'styled-components';
 import { ThemeType } from '<hooks>/useTheme';
 
 type ButtonType = 'button' | 'reset' | 'submit';
@@ -9,8 +9,9 @@ interface Props
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
   > {
-  children: string;
+  children: any;
   type: ButtonType;
+  styles?: string;
 }
 
 const style = css`
@@ -25,12 +26,14 @@ const style = css`
   `}
 `;
 
-const Button: FC<Props> & {
-  Styled: StyledComponent<'header', any, any>;
-} = ({ children, ...rest }: Props) => <Button.Styled {...rest}>{children}</Button.Styled>;
+const Button = React.forwardRef(({ children, ...rest }: Props, ref: any) => (
+  <Styled ref={ref} {...rest}>{children}</Styled>));
 
-Button.Styled = styled.button`
+const Styled = styled.button`
   ${style}
+  ${({ styles }: Props) => `
+    ${styles}
+  `}
 `;
 
 export default Button;

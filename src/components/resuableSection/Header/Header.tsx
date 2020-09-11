@@ -1,7 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-nested-ternary */
-/* eslint-disable max-len */
 import React, {
   useState, useEffect, FC, useContext,
 } from 'react';
@@ -12,6 +9,7 @@ import _debounce from 'lodash.debounce';
 import styled, { StyledComponent, ThemeContext } from 'styled-components';
 import { headerStyles, firstDivStyles, Props } from './styled.css';
 import { ThemeType } from '<hooks>/useTheme';
+import getScroll from '<helpers>/scroll';
 import Logo from '<assests>/icons/logo.png';
 
 interface State {
@@ -36,20 +34,7 @@ const Header: FC<{}> & {
 
   useEffect(() => {
     const update = _debounce(() => {
-      const supportPageOffset = window.pageXOffset !== undefined;
-      const isCSS1Compat = (document.compatMode || '') === 'CSS1Compat';
-      const scroll = {
-        x: supportPageOffset
-          ? window.pageXOffset
-          : isCSS1Compat
-            ? document.documentElement.scrollLeft
-            : document.body.scrollLeft,
-        y: supportPageOffset
-          ? window.pageYOffset
-          : isCSS1Compat
-            ? document.documentElement.scrollTop
-            : document.body.scrollTop,
-      };
+      const scroll = getScroll();
 
       if (scroll.y > 150 && styles.background !== colors.primary) {
         setStyles({
@@ -69,7 +54,7 @@ const Header: FC<{}> & {
     window.addEventListener('scroll', update);
 
     return () => window.removeEventListener('scroll', update);
-  }, [styles.background]);
+  }, [colors.primary, styles, styles.background]);
 
   const onCLick = () => {
     const newStyles: {

@@ -12,7 +12,7 @@ const styled = css<PropAndTheme>`
   label {
     margin-bottom: 0.3rem;
   }
-  input {
+  textarea, input {
     border: 1px solid #d5dae2;
     border-radius: 7px;
     padding: 0.7rem 0.5rem;

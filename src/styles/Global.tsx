@@ -17,6 +17,12 @@ html {
   scroll-behavior: smooth;
 }
 
+#modal-root, .modal-root {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 body {
   background-color: #fafafa;
   color: #3c414d;

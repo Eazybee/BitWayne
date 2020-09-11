@@ -1,29 +1,34 @@
-import React, { FC } from 'react';
-import styled, { StyledComponent } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 import styles from './styled.css';
 
-export interface Props
-  extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+export interface Props {
   label: string;
-  placeholder: string;
   errMsg?: string;
   value: string | number;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => any;
+  placeholder?: string;
+  type?: string;
+  name?: string;
+  onChange: (event: React.ChangeEvent<any>) => any;
 }
 
-const Input: FC<Props> & {
-  Styled: StyledComponent<'div', any, {}>;
-} = ({ label, errMsg, ...rest }: Props) => (
-  <Input.Styled>
-    <label htmlFor={label}>{label}</label>
-    <input id={label} type="text" {...rest} />
-    {errMsg && <p>{errMsg}</p>}
-  </Input.Styled>
-);
-
-Input.Styled = styled.div<Props>`
+const Styled = styled.div`
   ${styles}
 `;
+
+const Input = React.forwardRef(({
+  label, errMsg, type, name, ...rest
+}: Props, ref: any) => (
+  <Styled>
+    <label htmlFor={`label${name}`}>{label}</label>
+    {type === 'textArea'
+      ? <textarea id={`${label}${name}`} name={name} {...rest} />
+      : <input ref={ref} id={`${label}${name}`} type={type || 'text'} {...rest} name={name} />}
+
+    {errMsg && <p>{errMsg}</p>}
+  </Styled>
+));
+
 
 Input.defaultProps = {};
 

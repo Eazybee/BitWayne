@@ -1,5 +1,5 @@
 import React, {
-  FC, useState, useEffect, useCallback, useRef,
+  FC, useState, useEffect, useRef,
 } from 'react';
 import styled, { StyledComponent } from 'styled-components';
 // @ts-ignore
@@ -37,29 +37,7 @@ const Chat: FC<{}> & {
   const buttonRef = useRef<React.RefObject<HTMLButtonElement> | null | undefined>();
   const nicknameRef = useRef<React.RefObject<HTMLInputElement> | null | undefined>();
 
-  const update = useCallback((state = true) => {
-    setIsComponentVisible(state);
-    setOpen(state);
-    const scroll = getScroll();
 
-    if (scroll.y > 650 && !show) {
-      setShow(true);
-    }
-
-    if (scroll.y <= 150 && show) {
-      setShow(false);
-    }
-  }, [setIsComponentVisible, show]);
-
-  useEffect(() => {
-    window.addEventListener('scroll', () => update(false));
-
-    return () => window.removeEventListener('scroll', () => update(false));
-  }, [update]);
-
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => update(false), []);
   useEffect(() => {
     if (isOpen !== isComponentVisible) {
       setOpen(isComponentVisible);
@@ -76,6 +54,29 @@ const Chat: FC<{}> & {
     }
   }, [isComponentVisible, isOpen]);
 
+
+  useEffect(() => {
+    const showHideHandler = () => {
+      const scroll = getScroll();
+
+      if (scroll.y > 650 && !show) {
+        setShow(true);
+      }
+
+      if (scroll.y <= 150 && show) {
+        setShow(false);
+      }
+    };
+
+    showHideHandler();
+
+    window.addEventListener('scroll', showHideHandler);
+
+    return () => window.removeEventListener('scroll', showHideHandler);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [show]);
+
+
   const {
     values, handleChange, handleSubmit, errors,
   } = useFormBee({
@@ -86,8 +87,8 @@ const Chat: FC<{}> & {
       // }, 4000);
       // setTimeout(() => {
       //   setStatus(STATUS.IDLE);
-      // handleReset();
-      //   update(false);
+      //   handleReset();
+      //   setIsComponentVisible(false);
       // }, 6000);
     },
     rules,
@@ -157,7 +158,7 @@ const Chat: FC<{}> & {
                   <Button
                     type="button"
                     styles="width: 100%;"
-                    onClick={() => update(true)}
+                    onClick={() => setIsComponentVisible(true)}
                     ref={buttonRef}
                   >
                     <img src={ChatImg} alt="Chat" />

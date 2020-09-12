@@ -13,7 +13,6 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         cache: true,
-        parallel: true,
       }),
       new OptimizeCSSAssetsPlugin({})
     ]

@@ -36,6 +36,11 @@ const styled = css<PropAndTheme>`
       align-items: center;
       height: inherit;
 
+      &.loading{
+        background: #f6f0ff;
+        border-radius: 2rem;
+        border: .2rem #7757ac solid;
+      }
       h2 {
         color: ${colors.secondary};
 

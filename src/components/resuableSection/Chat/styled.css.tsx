@@ -28,7 +28,7 @@ const styles = css`
     cursor: pointer;
 
     div.chat {
-      transition: .2s linear;
+      transition: .2s linear, border-radius 0s;
       width: 3rem;
       height: 3rem;
       background: ${colors.white};

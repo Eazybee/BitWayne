@@ -16,6 +16,7 @@ const styles = css`
 
       div.LazyLoad {
         width: 40%;
+        height: auto;
 
         img {
           width: 100%;

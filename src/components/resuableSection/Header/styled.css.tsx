@@ -41,8 +41,9 @@ export const firstDivStyles = css<PropAndTheme>`
           }
 
           h1{
-            color: ${colors.secondary};
-            background: linear-gradient(0deg, ${colors.secondary} 0%, ${colors.primary} 100%);
+            font-family: 'Android';
+            color: ${colors.black};
+            background: linear-gradient(0deg, ${colors.secondary} 0%, ${colors.black} 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;

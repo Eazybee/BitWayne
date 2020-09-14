@@ -4,7 +4,7 @@ import Head from './Header/Header';
 import Foot from './Footer/Footer';
 
 const Footer: FC<{}> & {
-  Styled: StyledComponent<'section', any, {}>;
+  Styled: StyledComponent<'footer', any, {}>;
 } = () => (
   <Footer.Styled>
     <Head />
@@ -12,7 +12,7 @@ const Footer: FC<{}> & {
   </Footer.Styled>
 );
 
-Footer.Styled = styled.section`
+Footer.Styled = styled.footer`
   display: flex;
   flex-flow: column;
   align-items: center;

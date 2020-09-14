@@ -5,6 +5,13 @@ import Chat from './Chat';
 
 
 jest.mock('<helpers>/scroll', () => () => ({ x: 0, y: 700 }));
+jest.mock('react-router-dom', () => ({
+  useLocation: jest.fn(() => ({
+    pathname: '/',
+  })).mockImplementationOnce(() => ({
+    pathname: '/about',
+  })),
+}));
 
 describe('Chat', () => {
   it('should render', async () => {

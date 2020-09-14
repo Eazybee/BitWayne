@@ -36,6 +36,7 @@ module.exports = {
       patterns: [
         { from: process.cwd()+'/public/statics', to: buildDir+'/statics' },
         { from: path.join(__dirname, '../public', 'manifest.json'), to: buildDir },
+        { from: path.join(__dirname, '../public', '_redirects'), to: buildDir },
         { from: path.join(__dirname, '../public', 'robot.txt'), to: buildDir },
       ],
     }),

@@ -1,4 +1,5 @@
 import HomePage from '<components>/pages/Home/Home';
+import AboutPage from '<components>/pages/About/About';
 
 type RouteData = {
   default: {
@@ -15,6 +16,11 @@ const Routes: RouteData = {
       exact: true,
       path: '/',
       Component: HomePage,
+    },
+    {
+      exact: true,
+      path: '/about',
+      Component: AboutPage,
     },
   ],
 };

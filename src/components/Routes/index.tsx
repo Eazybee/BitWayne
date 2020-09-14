@@ -2,9 +2,16 @@ import React, { Suspense } from 'react';
 import {
   BrowserRouter as Router, Route, Switch, Redirect,
 } from 'react-router-dom';
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
+import Header from '<components>/resuableSection/Header/Header';
+import Footer from '<components>/resuableSection/Footer/Footer';
 import LoadingSpinner from '../ui/LoadingSpinner/LoadingSpinner';
+import Modal from '<components>/ui/Modal/Modal';
+import Chat from '<components>/resuableSection/Chat/Chat';
 import routeData from './data';
+
+
+const Main = styled.main``;
 
 const Routes = () => (
   <Router>
@@ -21,22 +28,27 @@ const Routes = () => (
         />
       )}
     >
-      <Switch>
-        {routeData.default.map(({ exact, path, Component }) => (
-          <Route key={path} exact={exact} path={path} component={Component} />
-        ))}
-        <Route
-          path="*"
-          render={({ location }) => (
-            <Redirect
-              to={{
-                pathname: '/',
-                state: { from: location },
-              }}
-            />
-          )}
-        />
-      </Switch>
+      <Header />
+      <Main>
+        <Switch>
+          {routeData.default.map(({ exact, path, Component }) => (
+            <Route key={path} exact={exact} path={path} component={Component} />
+          ))}
+          <Route
+            path="*"
+            render={({ location }) => (
+              <Redirect
+                to={{
+                  pathname: '/',
+                  state: { from: location },
+                }}
+              />
+            )}
+          />
+        </Switch>
+      </Main>
+      <Footer />
+      <Modal><Chat /></Modal>
     </Suspense>
   </Router>
 );

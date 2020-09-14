@@ -7,7 +7,7 @@ describe('Loading Spinner', () => {
   it('should renders', async () => {
     const { container } = render(<Footer />, {});
 
-    expect(container.firstChild?.nodeName).toEqual('SECTION');
+    expect(container.firstChild?.nodeName).toEqual('FOOTER');
     expect(container.firstChild).toHaveStyle(`
       display: flex;
       flex-flow: column;

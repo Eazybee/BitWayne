@@ -2,6 +2,7 @@ import React, {
   FC, useState, useEffect, useRef,
 } from 'react';
 import styled, { StyledComponent } from 'styled-components';
+import { useLocation } from 'react-router-dom';
 // @ts-ignore
 import useFormBee from 'useformbee';
 import Input from '<components>/ui/Input/Input';
@@ -36,7 +37,8 @@ const Chat: FC<{}> & {
   const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false);
   const buttonRef = useRef<React.RefObject<HTMLButtonElement> | null | undefined>();
   const nicknameRef = useRef<React.RefObject<HTMLInputElement> | null | undefined>();
-
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     if (isOpen !== isComponentVisible) {
@@ -58,8 +60,7 @@ const Chat: FC<{}> & {
   useEffect(() => {
     const showHideHandler = () => {
       const scroll = getScroll();
-
-      if (scroll.y > 650 && !show) {
+      if (scroll.y > (isHomePage ? 650 : 150) && !show) {
         setShow(true);
       }
 
@@ -74,7 +75,7 @@ const Chat: FC<{}> & {
 
     return () => window.removeEventListener('scroll', showHideHandler);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [show]);
+  }, [show, location]);
 
 
   const {

@@ -3,7 +3,7 @@ import React, {
   useState, useEffect, FC, useContext,
 } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import _debounce from 'lodash.debounce';
 import styled, { StyledComponent, ThemeContext } from 'styled-components';
@@ -101,16 +101,16 @@ const Header: FC<{}> & {
           <nav role="navigation">
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <NavLink exact to="/">Home</NavLink>
               </li>
               <li>
-                <Link to="/">Products</Link>
+                <NavLink exact to="/products">Products</NavLink>
               </li>
               <li>
-                <Link to="/">About us</Link>
+                <NavLink exact to="/about">About us</NavLink>
               </li>
               <li>
-                <Link to="/">Contact</Link>
+                <NavLink exact to="/contact">Contact</NavLink>
               </li>
             </ul>
           </nav>

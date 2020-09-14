@@ -55,6 +55,19 @@ const styles = css`
 
         &:hover{
           opacity: 1;
+
+          &::after{
+            content: 'Make Enquiries';
+            position: relative;
+            right: 9rem;
+            white-space: nowrap;
+            bottom: 1.5rem;
+            background: ${colors.lightPurple};
+            border-radius: .8rem;
+            padding: .8rem;
+            opacity: 1;
+            box-shadow: 0px 10px 10px rgba(0,0,0,0.2);
+          }
         }
 
         img {

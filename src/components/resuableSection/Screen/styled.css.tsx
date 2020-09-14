@@ -29,6 +29,10 @@ const styles = css`
       max-width: 80rem;
     }
 
+    .LazyLoad.is-visible{
+      width: auto;
+    }
+
     & >div> div:first-child {
       img {
         width: 100%;
@@ -40,7 +44,7 @@ const styles = css`
       &::after {
         content: " ";
         position: absolute;
-        height: ${otherPg ? '50%' : '100vh'};
+        height: ${otherPg ? '50vh' : '100vh'};
         left: 0;
         right: 0;
         top: 0;
@@ -88,14 +92,17 @@ const styles = css`
     }
 
 
+
     @media screen  and (max-width:1440px){
       & > div:first-child {
-        max-width: 100%;
+        max-width:  100%;
       }
+
       & > div > div:last-child {
-        max-width: 82rem;
+        max-width: ${!otherPg ? '82rem' : '100%'};
       }
     }
+
     @media screen  and (max-width:1350px){
       & > div div.LazyLoad img {
         filter: ${!otherPg ? 'blur(2px) brightness(0.8) contrast(0.9)' : ''};

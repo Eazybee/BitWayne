@@ -13,6 +13,6 @@ describe('HomePage', () => {
       {},
     );
 
-    expect(getByText('LoadAm')).toBeTruthy();
+    expect(getByText('A better way to sell your giftcards')).toBeTruthy();
   });
 });

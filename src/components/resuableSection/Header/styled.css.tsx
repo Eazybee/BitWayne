@@ -88,7 +88,7 @@ export const firstDivStyles = css<PropAndTheme>`
             transition: .3s;
             bottom: 0;
           }
-          &:hover, &:focus{
+          &:hover, &:focus, &.active{
             &::after{
               background-color: ${colors.secondary};
               box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -167,8 +167,9 @@ export const firstDivStyles = css<PropAndTheme>`
               &::after{
                 display: none;
               }
-              &:hover, &:focus {
+              &:hover, &:focus, &.active {
                 background-color: ${colors.secondary};
+                color: ${colors.lightPurple};
               }
             }
           }

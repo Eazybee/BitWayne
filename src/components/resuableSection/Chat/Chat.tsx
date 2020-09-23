@@ -5,13 +5,13 @@ import styled, { StyledComponent } from 'styled-components';
 import { useLocation } from 'react-router-dom';
 // @ts-ignore
 import useFormBee from 'useformbee';
-import Input from '<components>/ui/Input/Input';
 import Button from '<components>/ui/Button/Button';
 import ChatImg from '<assests>/icons/chat.svg';
 import useComponentVisible from '<hooks>/useComponentVisible';
 import LoadingSpinner from '<components>/ui/LoadingSpinner/LoadingSpinner';
 import style, { loadingStyle } from './styled.css';
 import getScroll from '<helpers>/scroll';
+import Form from '../Form/Form';
 
 
 const rules = {
@@ -35,8 +35,8 @@ const Chat: FC<{}> & {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [status, setStatus] = useState<STATUS>(STATUS.IDLE);
   const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false);
-  const buttonRef = useRef<React.RefObject<HTMLButtonElement> | null | undefined>();
-  const nicknameRef = useRef<React.RefObject<HTMLInputElement> | null | undefined>();
+  const buttonRef = useRef<HTMLButtonElement | null | undefined>();
+  const nicknameRef = useRef<HTMLInputElement | null | undefined>();
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -47,11 +47,9 @@ const Chat: FC<{}> & {
 
     if (isComponentVisible) {
       document.body.style.overflow = 'hidden';
-      // @ts-ignore
       nicknameRef.current?.focus();
     } else {
       document.body.style.overflow = 'auto';
-      // @ts-ignore
       buttonRef.current?.focus();
     }
   }, [isComponentVisible, isOpen]);
@@ -95,6 +93,37 @@ const Chat: FC<{}> & {
     rules,
   });
 
+  const inputsProps = [
+    {
+      label: 'Nickname',
+      errMsg: errors.nickname,
+      value: values.nickname,
+      name: 'nickname',
+      onChange: handleChange,
+      placeholder: 'Wizzy',
+      type: 'text',
+      ref: nicknameRef,
+    },
+    {
+      label: 'Your Email',
+      errMsg: errors.email,
+      value: values.email,
+      name: 'email',
+      onChange: handleChange,
+      placeholder: 'John@doe.com',
+      type: 'email',
+    },
+    {
+      label: 'Message',
+      errMsg: errors.msg,
+      value: values.msg,
+      name: 'msg',
+      onChange: handleChange,
+      placeholder: 'Hi, i would like...',
+      type: 'textArea',
+    },
+  ];
+
   return (
     <>
       {show
@@ -104,41 +133,7 @@ const Chat: FC<{}> & {
               {isOpen
                 ? (
                   <>
-                    <form onSubmit={handleSubmit}>
-                      <div>
-                        <Input
-                          label="Nickname"
-                          errMsg={errors.nickname}
-                          value={values.nickname}
-                          name="nickname"
-                          onChange={handleChange}
-                          placeholder="Wizzy"
-                          type="text"
-                          ref={nicknameRef}
-                        />
-                        <Input
-                          label="Your Email"
-                          errMsg={errors.email}
-                          value={values.email}
-                          name="email"
-                          onChange={handleChange}
-                          placeholder="John@doe.com"
-                          type="email"
-                        />
-                        <Input
-                          label="Message"
-                          errMsg={errors.msg}
-                          value={values.msg}
-                          name="msg"
-                          onChange={handleChange}
-                          placeholder="Hi, i would like..."
-                          type="textArea"
-                        />
-                      </div>
-                      <div className="submitBtn">
-                        <Button type="submit" styles="width: 100%;">Send</Button>
-                      </div>
-                    </form>
+                    <Form inputs={inputsProps} btnLabel="Send" btnClassName="submitBtn" handleSubmit={handleSubmit} />
                     {status !== STATUS.IDLE && <div className="loadingModal" />}
                     {status === STATUS.LOADING && (
                       <LoadingSpinner

@@ -64,6 +64,34 @@ body {
   to { opacity: 1; }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    position: relative;
+    top: 1.8rem;
+    /* transform: scale(0); */
+    transition: 1s linear;
+  }
+  to {
+    top: 0;
+    /* transform: scale(1); */
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    position: relative;
+    top: -1.8rem;
+    transition: 1s linear;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
 @media screen  and (max-width:506px){
   body {
     font-size: 14px;

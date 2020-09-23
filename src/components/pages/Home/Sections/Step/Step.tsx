@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 // @ts-ignore
 import LazyLoad from 'react-lazy-load';
 import styled, { StyledComponent } from 'styled-components';
-import StepIcon from '<assests>/icons/Vector.svg';
+import StepIcon from '<assests>/icons/container.svg';
 import styles, { Props, Position } from './styled.css';
 
 const Step: FC<Props> & {

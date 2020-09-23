@@ -3,9 +3,8 @@ import React, { FC, useState, useEffect } from 'react';
 import useFormBee from 'useformbee';
 import styled, { StyledComponent } from 'styled-components';
 import styles, { contentStyles } from './styled.css';
-import Input from '<components>/ui/Input/Input';
 import Title from '<components>/ui/Title/Title';
-import Button from '<components>/ui/Button/Button';
+import Form from '<components>/resuableSection/Form/Form';
 
 const Subscription: FC<{}> & {
   Styled: StyledComponent<'section', any, {}>;
@@ -42,46 +41,43 @@ const Subscription: FC<{}> & {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [values.email, values.mobileNo]);
 
+  const inputsProps = [
+    {
+      label: 'Username',
+      errMsg: errors.username,
+      value: values.username,
+      name: 'username',
+      onChange: handleChange,
+      placeholder: 'Wizzy',
+      type: 'text',
+    },
+    {
+      label: 'Email',
+      errMsg: errors.email || customErr.email,
+      value: values.email,
+      name: 'email',
+      onChange: handleChange,
+      placeholder: 'John@doe.com',
+      type: 'email',
+    },
+    {
+      label: 'Mobile No',
+      errMsg: errors.mobileNo || customErr.mobileNo,
+      value: values.mobileNo,
+      name: 'mobileNo',
+      onChange: handleChange,
+      placeholder: '08012345678',
+      type: 'tel',
+    },
+  ];
+
   return (
     <Subscription.Styled id="subscription">
       <Title>Stay Updated</Title>
       <p>subscribe to our newsletter for rate updates and bonus</p>
       <Content>
         <div>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <Input
-                label="Username"
-                errMsg={errors.username}
-                value={values.username}
-                name="username"
-                onChange={handleChange}
-                placeholder="Wizzy"
-                type="text"
-              />
-              <Input
-                label="Email"
-                errMsg={errors.email || customErr.email}
-                value={values.email}
-                name="email"
-                onChange={handleChange}
-                placeholder="John@doe.com"
-                type="email"
-              />
-              <Input
-                label="Mobile No"
-                errMsg={errors.mobileNo || customErr.mobileNo}
-                value={values.mobileNo}
-                name="mobileNo"
-                onChange={handleChange}
-                placeholder="08012345678"
-                type="tel"
-              />
-            </div>
-            <div className="submitBtn">
-              <Button type="submit">Subscribe Now</Button>
-            </div>
-          </form>
+          <Form inputs={inputsProps} btnLabel="Subscribe Now" btnClassName="submitBtn" handleSubmit={handleSubmit} />
           <div />
         </div>
       </Content>

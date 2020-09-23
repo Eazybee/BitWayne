@@ -105,7 +105,7 @@ const styles = css`
 
     @media screen  and (max-width:1350px){
       & > div div.LazyLoad img {
-        filter: ${!otherPg ? 'blur(2px) brightness(0.8) contrast(0.9)' : ''};
+        filter: ${!otherPg ? 'blur(0.5px) brightness(0.8) contrast(0.9)' : ''};
       }
       & > div > div:last-child {
         max-width: 77rem;

@@ -14,6 +14,7 @@ const Form: FC<Props> & {
         label, errMsg, value, name, onChange, placeholder, type,
       }) => (
         <Input
+          key={label}
           label={label}
           errMsg={errMsg}
           value={value}

@@ -1,7 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
-// @ts-ignore
-import LazyLoad from 'react-lazy-load';
 // @ts-ignore
 import useFormBee from 'useformbee';
 import Screen from '<components>/resuableSection/Screen/Screen';
@@ -12,6 +10,7 @@ import twitterBg from '<assests>/icons/twitterBg.svg';
 import instagramBg from '<assests>/icons/instagramBg.svg';
 import styles from './styled.css';
 import Form from '<components>/resuableSection/Form/Form';
+import LazyLoad from '<components>/ui/LazyLoad';
 
 
 export const screenProps = {
@@ -27,8 +26,6 @@ const rules = {
 };
 
 const ContactPage = () => {
-  const [loaded, setLoaded] = useState(false);
-  const imgOnLoad: () => void = () => setLoaded(true);
   const nicknameRef = useRef<HTMLInputElement | null | undefined>();
 
   const {
@@ -47,6 +44,14 @@ const ContactPage = () => {
     },
     rules,
   });
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      nicknameRef.current?.focus();
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const inputsProps = [
     {
@@ -88,30 +93,22 @@ const ContactPage = () => {
           <ul>
             <li>
               <a href="https://whatsapp.com/" title="whatsapp">
-                <LazyLoad debounce={false} offsetVertical={300}>
-                  <img src={whatsappBg} alt="whatsapp icon" title="Whatsapp" onLoad={imgOnLoad} className={loaded ? 'loaded' : ''} />
-                </LazyLoad>
+                <LazyLoad imgSrc={whatsappBg} alt="whatsapp icon" title="Whatsapp" />
               </a>
             </li>
             <li>
               <a href="https://fb.com/" title="facebook">
-                <LazyLoad debounce={false} offsetVertical={300}>
-                  <img src={fbBg} alt="facebook icon" title="Facebook" onLoad={imgOnLoad} className={loaded ? 'loaded' : ''} />
-                </LazyLoad>
+                <LazyLoad imgSrc={fbBg} alt="facebook icon" title="Facebook" />
               </a>
             </li>
             <li>
               <a href="https://twitter.com/" title="twitter">
-                <LazyLoad debounce={false} offsetVertical={300}>
-                  <img src={twitterBg} alt="twitter icon" title="Twitter" onLoad={imgOnLoad} className={loaded ? 'loaded' : ''} />
-                </LazyLoad>
+                <LazyLoad imgSrc={twitterBg} alt="twitter icon" title="Twitter" />
               </a>
             </li>
             <li>
               <a href="https://instagram.com/" title="instagram">
-                <LazyLoad debounce={false} offsetVertical={300}>
-                  <img src={instagramBg} alt="instagram icon" title="Instagram" onLoad={imgOnLoad} className={loaded ? 'loaded' : ''} />
-                </LazyLoad>
+                <LazyLoad imgSrc={instagramBg} alt="instagram icon" title="Instagram" />
               </a>
             </li>
           </ul>

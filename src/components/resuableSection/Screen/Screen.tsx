@@ -1,26 +1,18 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import styled, { StyledComponent } from 'styled-components';
-// @ts-ignore
-import LazyLoad from 'react-lazy-load';
+import LazyLoad from '<components>/ui/LazyLoad';
 import styles, { Props } from './styled.css';
 import HomeBg from '<assests>/images/hmBg.png';
 
 
 const Screen: FC<Props> & {
   Styled: StyledComponent<'section', any, Props>;
-} = ({ otherPg, imgSrc, title }: any) => {
-  const [loaded, setLoaded] = useState(false);
-  const imgOnLoad = () => setLoaded(true);
-  const className = `${loaded ? 'loaded' : ''}`;
-
-  return (
-    <Screen.Styled otherPg={otherPg}>
+} = ({ otherPg, imgSrc, title }: any) => (
+  <Screen.Styled otherPg={otherPg}>
+    <div>
+      <LazyLoad imgSrc={otherPg ? imgSrc : HomeBg} alt="" offsetVertical={0} />
       <div>
-        <LazyLoad debounce={false} offsetVertical={300}>
-          <img src={otherPg ? imgSrc : HomeBg} alt="" onLoad={imgOnLoad} className={className} />
-        </LazyLoad>
-        <div>
-          {
+        {
             otherPg ? (
               <h1>{title}</h1>
             ) : (
@@ -38,11 +30,10 @@ const Screen: FC<Props> & {
               </>
             )
           }
-        </div>
       </div>
-    </Screen.Styled>
-  );
-};
+    </div>
+  </Screen.Styled>
+);
 
 Screen.Styled = styled.section`
   ${styles}

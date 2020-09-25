@@ -25,7 +25,7 @@ describe('Header', () => {
     expect(getByText('Secure and fast exchanger')).toBeTruthy();
     expect(getByText('Subscribe')).toBeTruthy();
     expect(getByText('Home')).toBeTruthy();
-    expect(getByText('Products')).toBeTruthy();
+    expect(getByText('Rates')).toBeTruthy();
     expect(getByText('About us')).toBeTruthy();
     expect(getByText('Contact')).toBeTruthy();
   });

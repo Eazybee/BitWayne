@@ -34,6 +34,10 @@ const styles = css`
 
       &> div > div{
         margin: 1rem 0;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
 
       p{
@@ -93,18 +97,22 @@ const styles = css`
 
       & > div.form {
         margin-top: 3rem;
+        padding: 2rem;
         animation: fadeInDown 2s ease-out forwards;
         animation-delay: 2s;
       }
 
       & > div.info {
         width: 30rem;
+        padding: 2rem;
       }
     }
 
     @media screen and (max-width: 550px ) {
+      padding: 5rem 1rem;
       & > div.info, & > div.form {
         width: 100%;
+        padding: 2rem 1rem;
       }
     }
  `}

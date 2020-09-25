@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {
-  useState, useEffect, FC, useContext,
+  useState, useEffect, FC, useContext, useCallback,
 } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink } from 'react-router-dom';
@@ -11,6 +11,7 @@ import { headerStyles, firstDivStyles, Props } from './styled.css';
 import { ThemeType } from '<hooks>/useTheme';
 import getScroll from '<helpers>/scroll';
 import Logo from '<assests>/icons/logo.png';
+import useComponentVisible from '<hooks>/useComponentVisible';
 
 interface State {
   toggle: boolean;
@@ -22,6 +23,7 @@ const Header: FC<{}> & {
   Styled: StyledComponent<'header', any, Props>;
   FirstDiv: StyledComponent<'div', any, Props>;
 } = () => {
+  const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false);
   const [styles, setStyles] = useState<State>({
     toggle: false,
     hidden: true,
@@ -56,7 +58,8 @@ const Header: FC<{}> & {
     return () => window.removeEventListener('scroll', update);
   }, [colors.primary, styles, styles.background]);
 
-  const onCLick = () => {
+
+  const onCLick = useCallback(() => {
     const newStyles: {
       toggle?: boolean;
       hidden?: boolean;
@@ -70,15 +73,25 @@ const Header: FC<{}> & {
       newStyles.background = colors.primary;
     }
 
-    setStyles({
-      ...styles,
+
+    setIsComponentVisible(!toggle);
+
+    setStyles((stl) => ({
+      ...stl,
       ...newStyles,
       toggle: !toggle,
-    });
-  };
+    }));
+  }, [colors.primary, setIsComponentVisible, toggle]);
+
+  useEffect(() => {
+    if (toggle !== isComponentVisible) {
+      onCLick();
+    }
+  }, [isComponentVisible, onCLick, toggle]);
+
 
   return (
-    <Header.Styled styles={styles}>
+    <Header.Styled styles={styles} ref={ref}>
       <div>
         <Header.FirstDiv styles={styles}>
           <div>
@@ -104,7 +117,7 @@ const Header: FC<{}> & {
                 <NavLink exact to="/">Home</NavLink>
               </li>
               <li>
-                <NavLink exact to="/products">Products</NavLink>
+                <NavLink exact to="/rates">Rates</NavLink>
               </li>
               <li>
                 <NavLink exact to="/about">About us</NavLink>

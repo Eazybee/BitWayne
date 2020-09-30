@@ -1,42 +1,42 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import styled from 'styled-components';
-import LazyLoad from '<components>/ui/LazyLoad';
-import styles, { cardStyles } from './styled.css';
-import Button from '<components>/ui/Button/Button';
-import cards from './data';
-import { countriesIcon } from '<helpers>/constants';
+import styles from './styled.css';
+import data from './data';
+import Info from './Info/Info';
+import Modal from '<components>/ui/Modal/Modal';
+import Card from '<components>/resuableSection/Card/Card';
 
 
-const RatesPage = () => (
-  <RatesPage.Styled>
-    <span />
-    <div>
-      {cards.map((card) => (
-        <Card key={card.title}>
-          <>
-            <div>
-              <LazyLoad imgSrc={card.imgSrc} alt={card.title} />
-              <p>{card.title}</p>
-              <div className="countries">
-                {card.countries.map((countryName) => (
-                  <LazyLoad imgSrc={countriesIcon[countryName]} alt={countryName} />
-                ))}
-              </div>
-            </div>
-            <Button type="button">LOAD AM</Button>
-          </>
-        </Card>
+const RatesPage = () => {
+  const [current, setCurent] = useState<any>(null);
+
+  const cards = useMemo(() => (
+    <>
+      {data.map((card) => (
+        <Card
+          key={card.title}
+          countries={card.countries}
+          imgSrc={card.imgSrc}
+          title={card.title}
+          onClick={() => setCurent(card.info)}
+        />
       ))}
-    </div>
-  </RatesPage.Styled>
-);
+    </>
+  ), []);
+
+  return (
+    <RatesPage.Styled>
+      <span />
+      <div>
+        {cards}
+        {current && <Modal><Info data={current} close={() => setCurent(null)} /></Modal>}
+      </div>
+    </RatesPage.Styled>
+  );
+};
 
 RatesPage.Styled = styled.section`
   ${styles}
-`;
-
-const Card = styled.div`
-  ${cardStyles}
 `;
 
 export default RatesPage;

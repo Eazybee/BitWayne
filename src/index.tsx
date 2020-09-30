@@ -7,7 +7,7 @@ import App from './components/App';
 
 WebFont.load({
   google: {
-    families: ['Poppins:wght@400;700;900', 'Roboto:wght@400;700'],
+    families: ['Poppins:wght@400;700;900', 'Roboto:wght@400;700;900'],
   },
 });
 

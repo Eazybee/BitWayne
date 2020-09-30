@@ -30,7 +30,7 @@ const styles = css`
     }
 
     .LazyLoad.is-visible{
-      width: auto;
+      width: ${!otherPg ? 'auto' : '100%'};
     }
 
     & >div> div:first-child {
@@ -70,7 +70,7 @@ const styles = css`
       h1 {
         font-size: 3rem;
         color: ${colors.white};
-        text-shadow: ${colors.black} 0px 0px 5px;
+        text-shadow: ${colors.black} 2px 2px 0;
       }
       > div.homePage {
         width: 30rem;
@@ -79,7 +79,7 @@ const styles = css`
           font-size: 1.5rem;
           margin: 1.2rem 0;
           color: ${colors.white};
-          text-shadow: ${colors.black} 0px 0px 5px;
+          text-shadow: ${colors.black} 1px 1px 0;
         }
         a{
           background: ${colors.deepPurple};

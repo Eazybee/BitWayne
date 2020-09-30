@@ -8,25 +8,25 @@ const data = [
     icon: Mail,
     header: 'Step 1',
     desc:
-      'I am trying to import images to use inside a React component with TypeScript.The bundler Im using is Parcel (not Webpack).',
+      'Pick a card: go to rates and search for the card you want to sell. Click on "LOAD AM" button to read the requirements.',
   },
   {
     icon: Step2,
     header: 'Step 2',
     desc:
-      'I am trying to import images to use inside a React component with TypeScript.The bundler Im using is Parcel (not Webpack).',
+      'Sell: when all requirement are met, click on "Sell Now" button to take you to my whatsapp direct message conversation.',
   },
   {
     icon: Step3,
     header: 'Step 3',
     desc:
-      'I am trying to import images to use inside a React component with TypeScript.The bundler Im using is Parcel (not Webpack).',
+      'Transaction: we give you the best current market rate and you send us the card upon agreement with requirements.',
   },
   {
     icon: Book,
     header: 'Step 4',
     desc:
-      'I am trying to import images to use inside a React component with TypeScript.The bundler Im using is Parcel (not Webpack).',
+      'Get Paid: choose your payment method and get paid instantly into the bank/crypto of your choice upon card verification',
   },
 ];
 

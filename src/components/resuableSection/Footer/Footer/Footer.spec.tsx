@@ -1,11 +1,15 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '<helpers>/tests/testUtils';
 import Footer from './Footer';
 
 describe('Loading Spinner', () => {
   it('should renders', async () => {
-    const { getByText } = render(<Footer />, {});
+    const { getByText } = render(
+      <MemoryRouter><Footer /></MemoryRouter>,
+      {},
+    );
     const aboutUs = getByText('About Us');
     const contactUs = getByText('Contact Us');
     const links = getByText('Helpful Links');

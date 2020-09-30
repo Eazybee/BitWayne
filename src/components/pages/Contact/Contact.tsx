@@ -11,6 +11,7 @@ import instagramBg from '<assests>/icons/instagramBg.svg';
 import styles from './styled.css';
 import Form from '<components>/resuableSection/Form/Form';
 import LazyLoad from '<components>/ui/LazyLoad';
+import ScrollUp from '<components>/ui/ScrollUp/ScrollUp';
 
 
 export const screenProps = {
@@ -86,8 +87,8 @@ const ContactPage = () => {
 
   return (
     <>
+      <ScrollUp />
       <Screen {...screenProps} />
-
       <ContactPage.Styled>
         <div className="info">
           <ul>
@@ -128,7 +129,7 @@ const ContactPage = () => {
             </div>
             <div>
               <h2>Phone</h2>
-              <a href="tel:+234805678923">+234805678923</a>
+              <a href="tel:+2348126090283">+2348126090283</a>
             </div>
           </div>
         </div>

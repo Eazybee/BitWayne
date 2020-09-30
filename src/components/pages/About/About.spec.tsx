@@ -6,6 +6,7 @@ import About, { screenProps } from './About';
 
 
 describe('About', () => {
+  window.scrollTo = () => {};
   it('should render', async () => {
     const { container, getByText } = render(
       <MemoryRouter>

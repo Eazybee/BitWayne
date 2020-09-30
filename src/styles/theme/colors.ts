@@ -10,7 +10,7 @@ export const lightColors = {
   iconBackground: '#A183D2',
   instructionBg: '#8598d6',
   footerBg: '#ece7f7',
-  btnShadow: '0px 10px 10px rgba(0, 0, 0, 0.25)',
+  btnShadow: '-1px 9px 10px rgba(0,0,0,0.25);',
 };
 
 export type Colors = typeof lightColors;

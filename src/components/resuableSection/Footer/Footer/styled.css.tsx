@@ -53,6 +53,10 @@ const styles = css`
           line-height: 1.3rem;
           padding: .1rem 0;
         }
+
+        p > a {
+          color: #00c3ff;
+        }
       }
     }
     div.lower{

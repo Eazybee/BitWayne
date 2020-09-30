@@ -5,7 +5,7 @@ import styles from './styled.css';
 export interface Props {
   label: string;
   errMsg?: string;
-  value: string | number;
+  value: string;
   placeholder?: string;
   type?: string;
   name?: string;
@@ -17,14 +17,32 @@ const Styled = styled.div`
 `;
 
 const Input = React.forwardRef(({
-  label, errMsg, type, name, ...rest
+  label, errMsg, type, name, value, ...rest
 }: Props, ref: any) => (
   <Styled>
-    <label htmlFor={`${label}${name}`}>{label}</label>
     {type === 'textArea'
-      ? <textarea id={`${label}${name}`} name={name} {...rest} />
-      : <input ref={ref} id={`${label}${name}`} type={type || 'text'} {...rest} name={name} />}
+      ? (
+        <textarea
+          id={`${label}${name}`}
+          name={name}
+          value={value}
+          className={`${value?.trim() ? '' : 'empty'}`}
+          {...rest}
+        />
+      )
+      : (
+        <input
+          ref={ref}
+          id={`${label}${name}`}
+          type={type || 'text'}
+          value={value}
+          className={`${value?.trim() ? '' : 'empty'}`}
+          {...rest}
+          name={name}
+        />
+      )}
 
+    <label htmlFor={`${label}${name}`}>{label}</label>
     {errMsg && <p>{errMsg}</p>}
   </Styled>
 ));

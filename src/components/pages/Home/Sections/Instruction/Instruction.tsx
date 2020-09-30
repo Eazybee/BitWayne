@@ -1,5 +1,6 @@
 import React, { FC, useContext } from 'react';
 import styled, { StyledComponent, ThemeContext } from 'styled-components';
+import { Link } from 'react-router-dom';
 import Step, { Position } from '../Step/Step';
 import Title from '../../../../ui/Title/Title';
 import { ThemeType } from '<hooks>/useTheme';
@@ -23,7 +24,7 @@ const Instruction: FC<{}> & {
           ))}
         </div>
         <div className="btn">
-          <a href="# ">Start Trading Now</a>
+          <Link to="/rates" className="btnE">Start Trading Now</Link>
         </div>
       </div>
     </Instruction.Styled>

@@ -4,6 +4,7 @@ import { render, fireEvent } from '<helpers>/tests/testUtils';
 import Subscription from './Subscription';
 
 describe('Subscription', () => {
+  window.scrollTo = () => {};
   it('should render', async () => {
     const { getByPlaceholderText, container, getByText } = render(<Subscription />);
 
@@ -23,7 +24,7 @@ describe('Subscription', () => {
       const { getByPlaceholderText, getByText } = render(<Subscription />);
 
       fireEvent.click(getByText('Subscribe Now'));
-      const errorParagraph = getByPlaceholderText('Wizzy').nextSibling;
+      const errorParagraph = getByPlaceholderText('Wizzy').nextSibling?.nextSibling;
       expect(errorParagraph).toHaveTextContent('The username field is required.');
     });
 
@@ -33,8 +34,8 @@ describe('Subscription', () => {
       fireEvent.change(getByPlaceholderText('Wizzy'), { target: { value: 'Eazybee' } });
       fireEvent.click(getByText('Subscribe Now'));
 
-      const emailErrorParagraph = getByPlaceholderText('John@doe.com').nextSibling;
-      const phoneNoErrorParagraph = getByPlaceholderText('08012345678').nextSibling;
+      const emailErrorParagraph = getByPlaceholderText('John@doe.com').nextSibling?.nextSibling;
+      const phoneNoErrorParagraph = getByPlaceholderText('08012345678').nextSibling?.nextSibling;
       expect(emailErrorParagraph).toHaveTextContent(
         'Unless Mobile No is provided, Email is required.',
       );
@@ -52,9 +53,9 @@ describe('Subscription', () => {
       });
       fireEvent.click(getByText('Subscribe Now'));
 
-      const usernameErrorParagraph = getByPlaceholderText('Wizzy').nextSibling;
-      const emailErrorParagraph = getByPlaceholderText('John@doe.com').nextSibling;
-      const phoneNoErrorParagraph = getByPlaceholderText('08012345678').nextSibling;
+      const usernameErrorParagraph = getByPlaceholderText('Wizzy').nextSibling?.nextSibling;
+      const emailErrorParagraph = getByPlaceholderText('John@doe.com').nextSibling?.nextSibling;
+      const phoneNoErrorParagraph = getByPlaceholderText('08012345678').nextSibling?.nextSibling;
 
       expect(usernameErrorParagraph).toBeFalsy();
       expect(emailErrorParagraph).toBeFalsy();
@@ -68,9 +69,9 @@ describe('Subscription', () => {
       fireEvent.change(getByPlaceholderText('08012345678'), { target: { value: '08126235426' } });
       fireEvent.click(getByText('Subscribe Now'));
 
-      const usernameErrorParagraph = getByPlaceholderText('Wizzy').nextSibling;
-      const emailErrorParagraph = getByPlaceholderText('John@doe.com').nextSibling;
-      const phoneNoErrorParagraph = getByPlaceholderText('08012345678').nextSibling;
+      const usernameErrorParagraph = getByPlaceholderText('Wizzy').nextSibling?.nextSibling;
+      const emailErrorParagraph = getByPlaceholderText('John@doe.com').nextSibling?.nextSibling;
+      const phoneNoErrorParagraph = getByPlaceholderText('08012345678').nextSibling?.nextSibling;
 
       expect(usernameErrorParagraph).toBeFalsy();
       expect(emailErrorParagraph).toBeFalsy();

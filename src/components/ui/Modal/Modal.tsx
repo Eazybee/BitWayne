@@ -1,17 +1,17 @@
 import React, { useEffect, FC } from 'react';
 import ReactDOM from 'react-dom';
 
-const el = document.createElement('div');
-el.classList.add('modal-root');
 
 const Modal: FC<Props> = (props: Props) => {
-  const modalRoot = document.getElementById('modal-root');
+  const el = document.createElement('div');
+  el.classList.add('modal-root');
 
   useEffect(() => {
-     modalRoot?.appendChild(el);
+    const body = document.querySelector('body');
+     body?.appendChild(el);
 
-     return () => { modalRoot?.removeChild(el); };
-  }, [modalRoot]);
+     return () => { body?.removeChild(el); };
+  }, [el]);
 
 
   return ReactDOM.createPortal(

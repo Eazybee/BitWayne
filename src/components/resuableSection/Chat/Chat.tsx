@@ -128,38 +128,40 @@ const Chat: FC<{}> & {
     <>
       {show
         ? (
-          <Chat.Styled {...rest} ref={ref}>
-            <div className={`chat ${isOpen ? 'open' : ''}`}>
-              {isOpen
-                ? (
-                  <>
-                    <Form inputs={inputsProps} btnLabel="Send" btnClassName="submitBtn" handleSubmit={handleSubmit} />
-                    {status !== STATUS.IDLE && <div className="loadingModal" />}
-                    {status === STATUS.LOADING && (
+          <Chat.Styled {...rest} className={`${isOpen ? 'open' : ''}`}>
+            <div>
+              <div className={`chat ${isOpen ? 'open' : ''}`} ref={ref}>
+                {isOpen
+                  ? (
+                    <>
+                      <Form inputs={inputsProps} btnLabel="Send" btnClassName="submitBtn" handleSubmit={handleSubmit} />
+                      {status !== STATUS.IDLE && <div className="loadingModal" />}
+                      {status === STATUS.LOADING && (
                       <LoadingSpinner
                         styles={loadingStyle}
                         text="Sending"
                       />
-                    )}
-                    {(status === STATUS.SUCCESS || status === STATUS.FAILED) && (
+                      )}
+                      {(status === STATUS.SUCCESS || status === STATUS.FAILED) && (
                       <div className="status">
                         <p className={status === STATUS.SUCCESS ? 'success' : 'fail'}>
                           {status === STATUS.SUCCESS ? 'Sent' : 'Failed, Try Again'}
                         </p>
                       </div>
-                    )}
-                  </>
-                )
-                : (
-                  <Button
-                    type="button"
-                    styles="width: 100%;"
-                    onClick={() => setIsComponentVisible(true)}
-                    ref={buttonRef}
-                  >
-                    <img src={ChatImg} alt="Chat" />
-                  </Button>
-                )}
+                      )}
+                    </>
+                  )
+                  : (
+                    <Button
+                      type="button"
+                      styles="width: 100%;"
+                      onClick={() => setIsComponentVisible(true)}
+                      ref={buttonRef}
+                    >
+                      <img src={ChatImg} alt="Chat" />
+                    </Button>
+                  )}
+              </div>
             </div>
           </Chat.Styled>
         ) : null}

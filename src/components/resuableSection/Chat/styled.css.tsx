@@ -20,12 +20,17 @@ export const loadingStyle = css`
 
 const styles = css`
   ${({ theme: { colors } }: { theme: ThemeType }) => `
+  width: 100%;
+  transition: background .5s linear;
+
+  & >div:first-child {
     max-width: 74rem;
     width: 100%;
     display: flex;
     justify-content: flex-end;
     padding: 0 .5rem;
     cursor: pointer;
+  }
 
     div.chat {
       transition: .2s linear, border-radius 0s;
@@ -122,8 +127,28 @@ const styles = css`
     }
 
     @media screen  and (max-width:500px) {
-      div.chat{
-        display: none;
+      &.open {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: rgb(0 0 0 / 38%);
+        position: fixed;
+        top: 0;
+        z-index: 1;
+
+        & >div:first-child {
+          justify-content: center;
+        }
+
+        div.chat.open {
+          position: static;
+        }
+      }
+
+      div.chat {
+          transition: none;
       }
     }
   `}

@@ -10,18 +10,11 @@ const Form: FC<Props> & {
 }: Props) => (
   <Form.Styled onSubmit={handleSubmit}>
     <div>
-      {inputs.map(({
-        label, errMsg, value, name, onChange, placeholder, type,
-      }) => (
+      {inputs.map(({ label, ...inputProps }) => (
         <Input
           key={label}
           label={label}
-          errMsg={errMsg}
-          value={value}
-          name={name}
-          onChange={onChange}
-          placeholder={placeholder}
-          type={type}
+          {...inputProps}
         />
       ))}
     </div>

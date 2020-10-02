@@ -59,6 +59,14 @@ body {
   }
 }
 
+a.btnE {
+  &:focus, &:hover{
+    position: relative;
+    bottom: .05rem;
+    right: .05rem;
+    opacity: 1;
+  }
+}
 @keyframes fadeInImg {
   from { opacity: 0; }
   to { opacity: 1; }

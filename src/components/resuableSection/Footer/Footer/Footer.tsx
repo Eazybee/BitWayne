@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 import styled, { StyledComponent } from 'styled-components';
 import LazyLoad from '<components>/ui/LazyLoad';
 import Facebook from '<assests>/icons/fb.svg';
 import Twitter from '<assests>/icons/twitter.svg';
 import Instagram from '<assests>/icons/instagram.svg';
-
 import styles from './styled.css';
+
 
 const Footer: FC<{}> & {
   Styled: StyledComponent<'div', any, {}>;
@@ -16,21 +17,20 @@ const Footer: FC<{}> & {
         <div>
           <h2>About Us</h2>
           <p>
-            I am trying to import images to use inside a React component with TypeScript...
-            <a href="# ">Read more</a>
+            {`
+            Digital gift card platform that enables you convert your gift cards to naira/crypto from hundreds of
+            `}
+            <Link to="/about"> ...Read more</Link>
           </p>
         </div>
         <div className="contacts">
           <h2>Contact Us</h2>
           <ul>
             <li>
-              <a href="tel:+234805678923">+234805678923</a>
+              <a target="_blank" rel="noopener noreferrer" href="tel:+2348126090283">+2348126090283</a>
             </li>
             <li>
-              <a href="tel:+234805678923">+234805678923</a>
-            </li>
-            <li>
-              <a href="mailto:loadAm@somthing.com">loadAm@somthing.com</a>
+              <a target="_blank" rel="noopener noreferrer" href="mailto:loadAm@somthing.com">loadAm@somthing.com</a>
             </li>
           </ul>
         </div>
@@ -38,26 +38,23 @@ const Footer: FC<{}> & {
           <h2>Helpful Links</h2>
           <ul>
             <li>
-              <a href="# ">Services</a>
+              <Link to="/rates">Services</Link>
             </li>
             <li>
-              <a href="# ">Support</a>
-            </li>
-            <li>
-              <a href="# ">Terms &amp; Condition</a>
+              <Link to="/contact">Support</Link>
             </li>
           </ul>
         </div>
         <div className="social">
           <h2>Social</h2>
           <div>
-            <a href="https://fb.com/">
+            <a target="_blank" rel="noopener noreferrer" href="https://fb.com/">
               <LazyLoad imgSrc={Facebook} alt="facebook icon" />
             </a>
-            <a href="https://twitter.com/">
+            <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/ExchangeLoadam">
               <LazyLoad imgSrc={Twitter} alt="Twitter icon" />
             </a>
-            <a href="https://instagram.com/loadam.com.ng">
+            <a target="_blank" rel="noopener noreferrer" href="https://instagram.com/loadam.com.ng">
               <LazyLoad imgSrc={Instagram} alt="Instagram icon" />
             </a>
           </div>

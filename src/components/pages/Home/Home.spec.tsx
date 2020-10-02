@@ -5,10 +5,11 @@ import { render } from '<helpers>/tests/testUtils';
 import HomePage from './Home';
 
 describe('HomePage', () => {
+  window.scrollTo = () => {};
   it('should render', async () => {
     const { getByText } = render(
       <MemoryRouter>
-        <HomePage />
+        <HomePage location={{ pathname: '/rate', hash: 'jnk' }} />
       </MemoryRouter>,
       {},
     );

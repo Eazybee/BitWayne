@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Screen from '<components>/resuableSection/Screen/Screen';
 import OtherBg from '<assests>/images/pgBg.jpg';
 import styles from './styled.css';
+import ScrollUp from '<components>/ui/ScrollUp/ScrollUp';
 
 export const screenProps = {
   otherPg: true,
@@ -12,8 +13,8 @@ export const screenProps = {
 
 const AboutPage = () => (
   <>
+    <ScrollUp />
     <Screen {...screenProps} />
-
     <AboutPage.Styled>
       <article>
         <p>

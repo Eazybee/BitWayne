@@ -20,9 +20,9 @@ describe('Input', () => {
     expect(input).toBeTruthy();
     expect(input.nodeName).toEqual('INPUT');
     expect(input.getAttribute('type')).toEqual('text');
-    expect(input.previousSibling?.nodeName).toBe('LABEL');
-    expect(input.previousSibling?.textContent).toBe('Username');
-    expect(input.nextSibling).toBeFalsy();
+    expect(input.nextSibling?.nodeName).toBe('LABEL');
+    expect(input.nextSibling?.textContent).toBe('Username');
+    expect(input.nextSibling?.nextSibling).toBeFalsy();
   });
 
   it('should update value on onChange', async () => {
@@ -65,7 +65,7 @@ describe('Input', () => {
     );
     const input = getByPlaceholderText('Eazybee');
 
-    expect(input.nextSibling).toBeTruthy();
-    expect(input.nextSibling).toHaveTextContent('This is an error from beyond');
+    expect(input.nextSibling?.nextSibling).toBeTruthy();
+    expect(input.nextSibling?.nextSibling).toHaveTextContent('This is an error from beyond');
   });
 });

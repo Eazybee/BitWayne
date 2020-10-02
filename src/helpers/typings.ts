@@ -1,3 +1,16 @@
 export enum Countries {
   USA = 'USA',
+  CANADA = 'CANADA',
+  JAPAN = 'JAPAN',
+  AUSTRALIA = 'AUSTRALIA',
+  EUROPEAN_UNION = 'EUROPEAN_UNION',
+  MEXICO = 'MEXICO',
+  SOUTH_AFRICA = 'SOUTH_AFRICA',
+  SIGNAPORE = 'SIGNAPORE',
+  UK = 'UK'
 }
+
+
+/*
+
+*/

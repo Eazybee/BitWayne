@@ -5,6 +5,7 @@ import data from './data';
 import Info from './Info/Info';
 import Modal from '<components>/ui/Modal/Modal';
 import Card from '<components>/resuableSection/Card/Card';
+import ScrollUp from '<components>/ui/ScrollUp/ScrollUp';
 
 
 const RatesPage = () => {
@@ -12,6 +13,7 @@ const RatesPage = () => {
 
   const cards = useMemo(() => (
     <>
+      <ScrollUp />
       {data.map((card) => (
         <Card
           key={card.title}

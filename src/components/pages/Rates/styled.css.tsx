@@ -14,6 +14,7 @@ const styles = css`
       position: fixed;
       top: 0;
       height: 4rem;
+      z-index: 1;
     }
     &>div {
       width: 68rem;

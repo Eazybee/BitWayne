@@ -5,6 +5,7 @@ const styles = css`
   ${({ theme: { colors } }: { theme: ThemeType }) => `
     padding: 6rem .5em;
     background-color: ${colors.lightPurple};
+
     > div {
       display: flex;
       padding-top: 1rem;
@@ -20,7 +21,11 @@ const styles = css`
         flex-flow: column;
         align-items: center;
         text-align: center;
+        transition: box-shadow 0.1s, scale 0.1s;
 
+        &:hover{
+          box-shadow: .5rem .5rem 1rem rgba(0,0,0, 0.3);
+        }
         div.LazyLoad, img {
           padding-bottom: 1.5rem;
           width: 5rem;

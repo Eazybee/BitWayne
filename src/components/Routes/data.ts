@@ -1,7 +1,10 @@
+import { FC } from 'react';
+import { RouteChildrenProps } from 'react-router-dom';
+import loadable, { LoadableComponent } from '@loadable/component';
+import LoadingSpinner from '<components>/ui/LoadingSpinner/LoadingSpinner';
 import HomePage from '<components>/pages/Home/Home';
 import AboutPage from '<components>/pages/About/About';
 import ContactPage from '<components>/pages/Contact/Contact';
-import RatesPage from '<components>/pages/Rates/Rates';
 
 
 type RouteData = {
@@ -9,9 +12,18 @@ type RouteData = {
     exact: boolean;
     path: string;
     protected?: boolean;
-    Component: (prop?: any) => JSX.Element;
+    Component: (FC<RouteChildrenProps<any, any>>)
+    | ((prop?: any) => JSX.Element) | LoadableComponent<unknown>;
   }[];
 };
+
+const RatesPage = loadable(
+  () => import('<components>/pages/Rates/Rates'),
+  {
+    // @ts-ignore
+    fallback: LoadingSpinner,
+  },
+);
 
 const Routes: RouteData = {
   default: [

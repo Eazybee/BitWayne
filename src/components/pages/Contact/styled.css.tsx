@@ -28,7 +28,7 @@ const styles = css`
       width: 25rem;
       padding: 2rem 3rem;
       animation: fadeInDown 2s ease-out forwards;
-      animation-delay: 1s;
+      animation-delay: .2s;
       opacity: 0;
       position: relative;
 
@@ -66,13 +66,8 @@ const styles = css`
       top: -10rem;
       background: ${colors.white};
       animation: fadeInDownForm 2s ease-out forwards;
-      animation-delay: 1s;
+      animation-delay: .2s;
       opacity: 0;
-
-
-      h1{
-        padding: 0 0 1rem 0;
-      }
     }
 
     @keyframes fadeInDownForm {

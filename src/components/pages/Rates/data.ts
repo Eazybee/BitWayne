@@ -1,13 +1,42 @@
 import AppleItunesCard from '<assests>/images/apple_store_itunes.jpg';
+import AppleStoresCard from '<assests>/images/apple_store.jpg';
+import OffGamesCard from '<assests>/images/offgames.jpg';
+import EbayCard from '<assests>/images/ebay.jpg';
+import Amazon from '<assests>/images/amazon.jpg';
+import Steam from '<assests>/images/steam.jpg';
+import GooglePlay from '<assests>/images/google_play.jpg';
+import VisaCard from '<assests>/images/visa.jpg';
+import MacyCard from '<assests>/images/macy.jpg';
+import SephoraCard from '<assests>/images/sephora.jpg';
+import NikeCard from '<assests>/images/nike.jpg';
+import OneVanilla from '<assests>/images/vanila.jpg';
+import Master from '<assests>/images/master.jpg';
 import Itunes1 from '<assests>/images/card_sample/itunes1.jpg';
 import Itunes2 from '<assests>/images/card_sample/itunes2.jpg';
+import Steam1 from '<assests>/images/card_sample/steam1.jpg';
+import Steam2 from '<assests>/images/card_sample/steam2.jpg';
+import Amazon1 from '<assests>/images/card_sample/amazon1.jpg';
+import Amazon2 from '<assests>/images/card_sample/amazon2.jpg';
+import Ebay from '<assests>/images/card_sample/ebay.jpg';
+import GooglePlay1 from '<assests>/images/card_sample/google_play.jpg';
+import OneVanilla1 from '<assests>/images/card_sample/onevanila.jpg';
+import Master1 from '<assests>/images/card_sample/master.jpg';
+import Macy1 from '<assests>/images/card_sample/macy.jpg';
+import Sephora1 from '<assests>/images/card_sample/sephora.jpg';
+import Nike1 from '<assests>/images/card_sample/nike1.jpg';
+import Nike2 from '<assests>/images/card_sample/nike2.jpg';
+import OffGames1 from '<assests>/images/card_sample/offgames.jpg';
+import { Countries } from '<helpers>/typings';
 
 
 const cards = [
   {
     imgSrc: AppleItunesCard,
     title: 'ITUNES GIFT CARD',
-    countries: ['USA', 'USA', 'USA', 'USA', 'USA', 'USA'],
+    countries: [
+      Countries.USA, Countries.UK, Countries.SIGNAPORE, Countries.CANADA, Countries.EUROPEAN_UNION,
+      Countries.MEXICO, Countries.JAPAN,
+    ],
     info: {
       heading: 'ITUNES GIFT CARD',
       introductions: [
@@ -28,255 +57,241 @@ const cards = [
     },
   },
   {
-    imgSrc: AppleItunesCard,
-    title: 'ITUNES GIFT CARD',
-    countries: ['USA', 'USA', 'USA', 'USA', 'USA', 'USA'],
+    imgSrc: EbayCard,
+    title: 'EBAY GIFT CARD',
+    countries: [
+      Countries.UK, Countries.MEXICO, Countries.USA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
     info: {
-      heading: 'ITUNES GIFT CARD',
+      heading: 'EBAY GIFT CARD',
       introductions: [
-        'Amazon Giftcards are used to make purchases on Amazon sites. They are non-reloadable and carry specific amounts within them',
-        'Amazon cards ranges from different countries and different denominations.',
+        'eBay gift cards are used to make purchases on eBay. They are non-reloadable and carry specific amounts within them.',
         'Because it is used for purchases online, this card takes between 5-30min to redeem.',
       ],
       requirements: [
-        'We redeem denominations of $25-$500 of which all denominations carry equal price values.',
-        'Usually this takes less than 5min to redeem',
-        'Note: Google play store cards are prone to Google errors, so if your card says we need more info to redeem, kindly note that we can\'t use the card. You can return it back to the store for replacement',
-        'Kindly state the country before dropping the card.',
+        'We buy denominations ranging from $50-$500 with higher denominations having better price values than lower denominations',
+        'Click on the link to confirm the card balance https://www.ebay.com/gft/balance',
       ],
-      images: [
-        Itunes1, Itunes2,
-      ],
+      images: [Ebay],
       onClick: () => {},
     },
   },
   {
-    imgSrc: AppleItunesCard,
-    title: 'ITUNES GIFT CARD',
-    countries: ['USA', 'USA', 'USA', 'USA', 'USA', 'USA'],
+    imgSrc: Amazon,
+    title: 'AMAZON GIFT CARD',
+    countries: [
+      Countries.UK, Countries.MEXICO, Countries.USA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
     info: {
-      heading: 'ITUNES GIFT CARD',
+      heading: 'AMAZON GIFT CARD',
       introductions: [
-        'Amazon Giftcards are used to make purchases on Amazon sites. They are non-reloadable and carry specific amounts within them',
+        'Amazon Giftcards are used to make purchases on Amazon sites. They are non-reloadable and carry specific amounts within them.',
         'Amazon cards ranges from different countries and different denominations.',
         'Because it is used for purchases online, this card takes between 5-30min to redeem.',
       ],
       requirements: [
-        'We redeem denominations of $25-$500 of which all denominations carry equal price values.',
-        'Usually this takes less than 5min to redeem',
-        'Note: Google play store cards are prone to Google errors, so if your card says we need more info to redeem, kindly note that we can\'t use the card. You can return it back to the store for replacement',
-        'Kindly state the country before dropping the card.',
+        'We buy denominations ranging from $50-$500 with lower denominations of $50-$100 having the best price values than higher denominations of $300-$500.',
+        'Card must start with "AQ"',
+        'Note: We only accept cash receipts for USA amazons due to issues of charge backs.',
       ],
-      images: [
-        Itunes1, Itunes2,
-      ],
+      images: [Amazon1, Amazon2],
       onClick: () => {},
     },
   },
   {
-    imgSrc: AppleItunesCard,
-    title: 'ITUNES GIFT CARD',
-    countries: ['USA', 'USA', 'USA', 'USA', 'USA', 'USA'],
+    imgSrc: Steam,
+    title: 'STEAM CARD',
+    countries: [
+      Countries.UK, Countries.MEXICO, Countries.USA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
     info: {
-      heading: 'ITUNES GIFT CARD',
+      heading: 'STEAM CARD',
       introductions: [
-        'Amazon Giftcards are used to make purchases on Amazon sites. They are non-reloadable and carry specific amounts within them',
-        'Amazon cards ranges from different countries and different denominations.',
-        'Because it is used for purchases online, this card takes between 5-30min to redeem.',
+        'Steam Gift Cards work just like gift certificates, which can be redeemed on Steam network for the purchase of games, software, and any other item you can purchase on Steam.',
       ],
       requirements: [
-        'We redeem denominations of $25-$500 of which all denominations carry equal price values.',
-        'Usually this takes less than 5min to redeem',
-        'Note: Google play store cards are prone to Google errors, so if your card says we need more info to redeem, kindly note that we can\'t use the card. You can return it back to the store for replacement',
-        'Kindly state the country before dropping the card.',
+        'We redeem denominations ranging from of $20-$200',
+        'Kindly state the country and denomination before dropping the card.',
+        'NOTE: Usually this takes less than 5min to redeem',
       ],
-      images: [
-        Itunes1, Itunes2,
-      ],
+      images: [Steam1, Steam2],
       onClick: () => {},
     },
   },
   {
-    imgSrc: AppleItunesCard,
-    title: 'ITUNES GIFT CARD',
-    countries: ['USA', 'USA', 'USA', 'USA', 'USA', 'USA'],
+    imgSrc: GooglePlay,
+    title: 'GOOGLE PLAY GIFT CARD',
+    countries: [
+      Countries.UK, Countries.MEXICO, Countries.USA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
     info: {
-      heading: 'ITUNES GIFT CARD',
+      heading: 'GOOGLE PLAY GIFT CARD',
       introductions: [
-        'Amazon Giftcards are used to make purchases on Amazon sites. They are non-reloadable and carry specific amounts within them',
-        'Amazon cards ranges from different countries and different denominations.',
-        'Because it is used for purchases online, this card takes between 5-30min to redeem.',
+        'Google Play card gives you unlimited access to all content available in the Google play Store. This includes apps, games, movies, TV shows, music, magazines and more!',
       ],
       requirements: [
         'We redeem denominations of $25-$500 of which all denominations carry equal price values.',
         'Usually this takes less than 5min to redeem',
-        'Note: Google play store cards are prone to Google errors, so if your card says we need more info to redeem, kindly note that we can\'t use the card. You can return it back to the store for replacement',
-        'Kindly state the country before dropping the card.',
+        `
+         Kindly state the country before dropping the card.
+         NOTE: Google play store cards are prone to Google errors, so if your card says we need more info to redeem, kindly note that we can't use the card. You can return it back to the store for replacement.
+        `,
       ],
-      images: [
-        Itunes1, Itunes2,
-      ],
+      images: [GooglePlay1],
       onClick: () => {},
     },
   },
   {
-    imgSrc: AppleItunesCard,
-    title: 'ITUNES GIFT CARD',
-    countries: ['USA', 'USA', 'USA', 'USA', 'USA', 'USA'],
+    imgSrc: OneVanilla,
+    title: 'ONEVANILLA GIFT CARD',
+    countries: [
+      Countries.UK, Countries.MEXICO, Countries.USA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
     info: {
-      heading: 'ITUNES GIFT CARD',
+      heading: 'ONEVANILLA GIFT CARD',
       introductions: [
-        'Amazon Giftcards are used to make purchases on Amazon sites. They are non-reloadable and carry specific amounts within them',
-        'Amazon cards ranges from different countries and different denominations.',
-        'Because it is used for purchases online, this card takes between 5-30min to redeem.',
+        'Onevanilla gift card is a prepaid card that serves as a secure and convenient way to trade safe online. It is a reloadable alternative to a regular bank account. It is a card that is used for money management.',
+        'Because it is a prepaid card that needs to be used, this card takes between 2-3hrs to redeem in the store.',
       ],
       requirements: [
-        'We redeem denominations of $25-$500 of which all denominations carry equal price values.',
-        'Usually this takes less than 5min to redeem',
-        'Note: Google play store cards are prone to Google errors, so if your card says we need more info to redeem, kindly note that we can\'t use the card. You can return it back to the store for replacement',
-        'Kindly state the country before dropping the card.',
+        'We need OneVanilla Giftcards with start code "4941" "4847" "5432" "5164" "4941" and "4142" respectively.',
+        'We buy denominations ranging from $100-$500.',
       ],
-      images: [
-        Itunes1, Itunes2,
-      ],
+      images: [OneVanilla1],
       onClick: () => {},
     },
   },
   {
-    imgSrc: AppleItunesCard,
-    title: 'ITUNES GIFT CARD',
-    countries: ['USA', 'USA', 'USA', 'USA', 'USA', 'USA'],
+    imgSrc: VisaCard,
+    title: 'VISA GIFT CARD',
+    countries: [
+      Countries.UK, Countries.MEXICO, Countries.USA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
     info: {
-      heading: 'ITUNES GIFT CARD',
+      heading: 'VISA GIFT CARD',
       introductions: [
-        'Amazon Giftcards are used to make purchases on Amazon sites. They are non-reloadable and carry specific amounts within them',
-        'Amazon cards ranges from different countries and different denominations.',
-        'Because it is used for purchases online, this card takes between 5-30min to redeem.',
+        'Visa gift cards are pre-loaded cards. It can be used at most places Visa®️ debit cards are accepted. Because it\'s a prepaid card, spending is limited to the amount of money on the card.',
+        'Because it is a prepaid card, it usually takes 2-3hrs to redeem.',
       ],
       requirements: [
-        'We redeem denominations of $25-$500 of which all denominations carry equal price values.',
-        'Usually this takes less than 5min to redeem',
-        'Note: Google play store cards are prone to Google errors, so if your card says we need more info to redeem, kindly note that we can\'t use the card. You can return it back to the store for replacement',
-        'Kindly state the country before dropping the card.',
+        'We accept Visa gift card with start code "4034" or "4358" or "4852"',
+        'We buy denominations ranging from $100-$500 with higher denominations of $300-$500 having the best rates',
       ],
-      images: [
-        Itunes1, Itunes2,
-      ],
+      images: [VisaCard],
       onClick: () => {},
     },
   },
   {
-    imgSrc: AppleItunesCard,
-    title: 'ITUNES GIFT CARD',
-    countries: ['USA', 'USA', 'USA', 'USA', 'USA', 'USA'],
+    imgSrc: Master,
+    title: 'MASTER GIFT CARD',
+    countries: [
+      Countries.UK, Countries.MEXICO, Countries.USA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
     info: {
-      heading: 'ITUNES GIFT CARD',
+      heading: 'MASTER GIFT CARD',
       introductions: [
-        'Amazon Giftcards are used to make purchases on Amazon sites. They are non-reloadable and carry specific amounts within them',
-        'Amazon cards ranges from different countries and different denominations.',
-        'Because it is used for purchases online, this card takes between 5-30min to redeem.',
+        'Master card gift cards are pre-loaded cards. It can be used at most places Master card®️ debit cards are accepted. Because it\'s a prepaid card, spending is limited to the amount of money on the card.',
+        'Because it is a prepaid card, it usually takes 2-3hrs to redeem.',
       ],
       requirements: [
-        'We redeem denominations of $25-$500 of which all denominations carry equal price values.',
-        'Usually this takes less than 5min to redeem',
-        'Note: Google play store cards are prone to Google errors, so if your card says we need more info to redeem, kindly note that we can\'t use the card. You can return it back to the store for replacement',
-        'Kindly state the country before dropping the card.',
+        'We accept Master gift card with start code "5113"',
+        'We buy denominations ranging from $100-$500 with higher denominations of $300-$500 having the best rates',
       ],
-      images: [
-        Itunes1, Itunes2,
-      ],
+      images: [Master1],
       onClick: () => {},
     },
   },
   {
-    imgSrc: AppleItunesCard,
-    title: 'ITUNES GIFT CARD',
-    countries: ['USA', 'USA', 'USA', 'USA', 'USA', 'USA'],
+    imgSrc: MacyCard,
+    title: 'MACY GIFT CARD',
+    countries: [
+      Countries.UK, Countries.MEXICO, Countries.USA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
     info: {
-      heading: 'ITUNES GIFT CARD',
+      heading: 'MACY GIFT CARD',
       introductions: [
-        'Amazon Giftcards are used to make purchases on Amazon sites. They are non-reloadable and carry specific amounts within them',
-        'Amazon cards ranges from different countries and different denominations.',
-        'Because it is used for purchases online, this card takes between 5-30min to redeem.',
+        'Macy gift cards are used to make purchases on Macy stores. They are non-reloadable and carry specific amounts within them.',
+        'Because it is used for purchases online, this card takes between 1-2hrs to redeem.',
       ],
       requirements: [
-        'We redeem denominations of $25-$500 of which all denominations carry equal price values.',
-        'Usually this takes less than 5min to redeem',
-        'Note: Google play store cards are prone to Google errors, so if your card says we need more info to redeem, kindly note that we can\'t use the card. You can return it back to the store for replacement',
-        'Kindly state the country before dropping the card.',
+        'We buy denominations ranging from $100-$500 with higher denominations having better price values than lower denominations',
       ],
-      images: [
-        Itunes1, Itunes2,
-      ],
+      images: [Macy1],
       onClick: () => {},
     },
   },
   {
-    imgSrc: AppleItunesCard,
-    title: 'ITUNES GIFT CARD',
-    countries: ['USA', 'USA', 'USA', 'USA', 'USA', 'USA'],
+    imgSrc: SephoraCard,
+    title: 'SEPHORA GIFT CARD',
+    countries: [
+      Countries.UK, Countries.MEXICO, Countries.USA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
     info: {
-      heading: 'ITUNES GIFT CARD',
+      heading: 'SEPHORA GIFT CARD',
       introductions: [
-        'Amazon Giftcards are used to make purchases on Amazon sites. They are non-reloadable and carry specific amounts within them',
-        'Amazon cards ranges from different countries and different denominations.',
-        'Because it is used for purchases online, this card takes between 5-30min to redeem.',
+        'Sephora gift cards are used to make purchases on Sephora stores which is an online beauty store or in JC Penny stores. They are non-reloadable and carry specific amounts within them.',
+        'Because it is used for purchases online, this card takes between 2-3hrs to redeem.',
       ],
       requirements: [
-        'We redeem denominations of $25-$500 of which all denominations carry equal price values.',
-        'Usually this takes less than 5min to redeem',
-        'Note: Google play store cards are prone to Google errors, so if your card says we need more info to redeem, kindly note that we can\'t use the card. You can return it back to the store for replacement',
-        'Kindly state the country before dropping the card.',
+        'We buy denominations ranging from $100-$500 only.',
       ],
-      images: [
-        Itunes1, Itunes2,
-      ],
+      images: [Sephora1],
       onClick: () => {},
     },
   },
   {
-    imgSrc: AppleItunesCard,
-    title: 'ITUNES GIFT CARD',
-    countries: ['USA', 'USA', 'USA', 'USA', 'USA', 'USA'],
+    imgSrc: NikeCard,
+    title: 'NIKE GIFT CARD',
+    countries: [
+      Countries.UK, Countries.MEXICO, Countries.USA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
     info: {
-      heading: 'ITUNES GIFT CARD',
+      heading: 'NIKE GIFT CARD',
       introductions: [
-        'Amazon Giftcards are used to make purchases on Amazon sites. They are non-reloadable and carry specific amounts within them',
-        'Amazon cards ranges from different countries and different denominations.',
-        'Because it is used for purchases online, this card takes between 5-30min to redeem.',
+        'Nike gift cards are used to make purchases on Nike stores. They are non-reloadable and carry specific amounts within them.',
+        'Because it is used for purchases online, this card takes between 1-3hrs to redeem.',
       ],
       requirements: [
-        'We redeem denominations of $25-$500 of which all denominations carry equal price values.',
-        'Usually this takes less than 5min to redeem',
-        'Note: Google play store cards are prone to Google errors, so if your card says we need more info to redeem, kindly note that we can\'t use the card. You can return it back to the store for replacement',
-        'Kindly state the country before dropping the card.',
+        'We buy $500 only.',
+        'Confirm your card balance at https://www.nike.com/orders/gift-card-lookup',
       ],
-      images: [
-        Itunes1, Itunes2,
-      ],
+      images: [Nike1, Nike2],
       onClick: () => {},
     },
   },
   {
-    imgSrc: AppleItunesCard,
-    title: 'ITUNES GIFT CARD',
-    countries: ['USA', 'USA', 'USA', 'USA', 'USA', 'USA'],
+    imgSrc: AppleStoresCard,
+    title: 'APPLE STORE GIFT CARD',
+    countries: [
+      Countries.UK, Countries.MEXICO, Countries.USA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
     info: {
-      heading: 'ITUNES GIFT CARD',
+      heading: 'APPLE STORE GIFT CARD',
       introductions: [
-        'Amazon Giftcards are used to make purchases on Amazon sites. They are non-reloadable and carry specific amounts within them',
-        'Amazon cards ranges from different countries and different denominations.',
-        'Because it is used for purchases online, this card takes between 5-30min to redeem.',
+        'Apple Store Gift Cards can be used for lots of Apple products, including music, movies, books, games, apps, accessories and more from the App Store, iBooks or iTunes on Apple online stores or Apple retail stores hence usually takes about 1-3hrs to be used on store.',
       ],
       requirements: [
-        'We redeem denominations of $25-$500 of which all denominations carry equal price values.',
-        'Usually this takes less than 5min to redeem',
-        'Note: Google play store cards are prone to Google errors, so if your card says we need more info to redeem, kindly note that we can\'t use the card. You can return it back to the store for replacement',
-        'Kindly state the country before dropping the card.',
+        'We buy denominations ranging from $500-$2000',
       ],
-      images: [
-        Itunes1, Itunes2,
+      images: [],
+      onClick: () => {},
+    },
+  },
+  {
+    imgSrc: OffGamesCard,
+    title: 'OFF GAMER GIFT CARD',
+    countries: [
+      Countries.UK, Countries.MEXICO, Countries.USA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
+    info: {
+      heading: 'OFF GAMER GIFT CARD',
+      introductions: [
+        'OffGamers Gift Card (US) solution is designed to replace the traditional gift certificates and offers excellent conveniences to all users on Offgamers site and other gaming site.',
       ],
+      requirements: [
+        'We buy denominations ranging from $500-$2000',
+      ],
+      images: [OffGames1],
       onClick: () => {},
     },
   },

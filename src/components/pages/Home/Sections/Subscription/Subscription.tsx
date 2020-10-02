@@ -20,13 +20,11 @@ const Subscription: FC<{}> & {
 
   const submit = async (e: any) => {
     if (e.email === '' && e.mobileNo === '') {
-      return setCustomErr({
+      setCustomErr({
         email: 'Unless Mobile No is provided, Email is required.',
         mobileNo: 'Unless Email is provided, Mobile No is required.',
       });
     }
-
-    return console.log(e);
   };
 
   const {

@@ -24,7 +24,11 @@ const Form: FC<Props> & {
   </Form.Styled>
 );
 
-Form.Styled = styled.form``;
+Form.Styled = styled.form`
+  & > div:last-child {
+    margin-top: 1rem;
+  }
+`;
 
 type Props = {
   inputs: InputProps[],

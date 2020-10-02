@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styled, { StyledComponent } from 'styled-components';
+import { Link } from 'react-router-dom';
 import LazyLoad from '<components>/ui/LazyLoad';
 import styles, { Props } from './styled.css';
 import HomeBg from '<assests>/images/hmBg.png';
@@ -25,7 +26,7 @@ const Screen: FC<Props> & {
                     {' '}
                     All for amazing naira rates and payment is instant.
                   </p>
-                  <a href="# ">Sell Now</a>
+                  <Link to="/rates" className="btnE">Sell Now</Link>
                 </div>
               </>
             )

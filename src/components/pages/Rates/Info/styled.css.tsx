@@ -34,7 +34,7 @@ const styles = css`
     z-index: 100;
     padding: 0 1rem;
 
-    & >div{
+    & > div{
       width: 100%;
       max-width: 40rem;
       background: ${colors.white};
@@ -61,7 +61,7 @@ const styles = css`
         p {
           font-size: .9rem;
           text-align: center;
-          padding: .5rem 0;
+          padding: .3rem 0;
         }
         div {
           padding: 1rem 0;

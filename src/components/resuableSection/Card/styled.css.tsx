@@ -9,12 +9,19 @@ const styles = css`
     flex-flow: column;
     align-items: center;
     background: ${colors.lightPurple};
-    box-shadow: 0 .3rem 0.9rem 0.7rem rgba(119, 87, 172, 0.25);
     border-radius: 1rem;
     min-height: 20rem;
     padding: 2rem 3rem;
     justify-content: space-between;
     margin: 0 1rem 2rem 1rem;
+    transition: .5s;
+    border: 1px solid #efefef;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 .3rem 0.9rem 0.7rem rgba(119, 87, 172, 0.25);
+
+    }
 
     & > div {
       margin-bottom: 1rem;
@@ -27,7 +34,8 @@ const styles = css`
 
       p {
         text-align: center;
-        font-size: 1.2rem;
+        font-size: 1rem;
+        font-weight: 900;
         padding: .5rem 0;
       }
 

@@ -20,17 +20,19 @@ export const loadingStyle = css`
 
 const styles = css`
   ${({ theme: { colors } }: { theme: ThemeType }) => `
-  width: 100%;
-  transition: background .5s linear;
-
-  & >div:first-child {
-    max-width: 74rem;
     width: 100%;
+    transition: background .5s linear;
     display: flex;
-    justify-content: flex-end;
-    padding: 0 .5rem;
-    cursor: pointer;
-  }
+    justify-content: center;
+
+    & >div:first-child {
+      max-width: 74rem;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 .5rem;
+      cursor: pointer;
+    }
 
     div.chat {
       transition: .2s linear, border-radius 0s;
@@ -38,14 +40,11 @@ const styles = css`
       height: 3rem;
       background: ${colors.white};
       position: fixed;
-      top: 80vh;
+      top: 75vh;
       z-index: 99;
       border-radius: 50%;
       display: block;
 
-      label {
-        color: ${colors.white};
-      }
 
       textarea{
         resize: none;
@@ -60,6 +59,8 @@ const styles = css`
 
         &:hover{
           opacity: 1;
+          top: 0;
+          right: 0;
 
           &::after{
             content: 'Make Enquiries';
@@ -102,6 +103,10 @@ const styles = css`
         border-radius: 10px;
       }
 
+      .submitBtn {
+        display: flex;
+        flex-flow: column;
+      }
       .status {
         ${loadingStyle}
 

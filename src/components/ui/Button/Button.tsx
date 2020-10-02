@@ -23,6 +23,15 @@ const style = css`
     border-radius: .5rem;
     box-shadow: ${colors.btnShadow};
     cursor: pointer;
+    position: relative;
+    transition: 1s;
+    opacity: .8;
+
+    &:hover, &:focus {
+      bottom: .05rem;
+      right: .05rem;
+      opacity: 1;
+    }
   `}
 `;
 

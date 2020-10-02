@@ -3,7 +3,7 @@ import React, {
   useState, useEffect, FC, useContext, useCallback,
 } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import _debounce from 'lodash.debounce';
 import styled, { StyledComponent, ThemeContext } from 'styled-components';
@@ -29,7 +29,8 @@ const Header: FC<{}> & {
     hidden: true,
     background: 'transparent',
   });
-
+  const location = useLocation();
+  const isHome = location.pathname === '/';
   const { colors } = useContext(ThemeContext) as ThemeType;
 
   const { toggle } = styles;
@@ -131,7 +132,9 @@ const Header: FC<{}> & {
         <div>
           <ul>
             <li>
-              <a href="#subscription">Subscribe</a>
+              {isHome
+                ? <a href="#subscription" className="btnE">Subscribe</a>
+                : <Link to="/#subscription" className="btnE">Subscribe</Link>}
             </li>
           </ul>
         </div>

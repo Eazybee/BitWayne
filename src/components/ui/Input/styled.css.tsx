@@ -13,7 +13,7 @@ const styled = css<PropAndTheme>`
     position: relative;
     top: 1.7rem;
     font-size: .8rem;
-    padding: 0 0 0 .5rem;
+    padding: 0 0 0 .7rem;
     color: #565a61;
     transition: .5s;
   }
@@ -21,7 +21,7 @@ const styled = css<PropAndTheme>`
     border: 1px solid #d5dae2;
     font-size: 1rem;
     border-radius: .7rem;
-    padding: 1.5rem 0.5rem 1rem 0.5rem;
+    padding: 1.5rem 0.7rem 1rem 0.7rem;
     line-height: 1.5rem;
 
     &::placeholder,

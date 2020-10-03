@@ -117,10 +117,9 @@ const ContactPage = () => {
             <div>
               <h1>FIND US</h1>
               <p>
-                {`Proin gravida nibh vel velit auctor aliquet.
-                Aenean dyfi iysda asslicikoitudin lorem
-                quis bibendum auctor, nisi elit consequat
-                ipsumnec sagittis sem namputate cursus`}
+                {`
+                Please contact us for official purposes only as a response might take up to 24 hours.
+                For sales and quick enquiries, kindly use the whatsapp.`}
               </p>
             </div>
             <div>

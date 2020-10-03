@@ -1,20 +1,8 @@
 /* eslint-disable no-console */
 import React from 'react';
-import styled from 'styled-components';
 import { isDevelopment } from '<helpers>/constants';
+import FallBack from '../FallBack/FallBack';
 
-const FallBack = styled.div`
-  width: 100%;
-  height: 100%;
-  z-index: 99;
-  background-color: red;
-
-  p {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-  }
-`;
 
 class ErrorBoundary extends React.Component<Record<string, any>, { hasError: boolean }> {
   constructor(props: Record<string, any>) {

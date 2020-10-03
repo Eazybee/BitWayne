@@ -5,6 +5,7 @@ import LazyLoad from '<components>/ui/LazyLoad';
 import Foot from '<assests>/images/foot.png';
 import styles from './styled.css';
 
+
 const Header: FC<{}> & {
   Styled: StyledComponent<'div', any, {}>;
 } = () => (

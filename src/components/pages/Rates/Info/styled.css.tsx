@@ -34,7 +34,9 @@ const styles = css`
     z-index: 100;
     padding: 0 1rem;
 
+
     & > div{
+      animation: popUp .7s ease-out forwards;
       width: 100%;
       max-width: 40rem;
       background: ${colors.white};
@@ -80,8 +82,22 @@ const styles = css`
       }
     }
 
-    @media screen  and (max-height:540px) {
+    @keyframes popUp {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      60% {
+        transform: scale(1.1);
+      }
 
+      75% {
+        transform: scale(0.9);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
   `}
 `;

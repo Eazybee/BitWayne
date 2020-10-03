@@ -28,13 +28,14 @@ export const firstDivStyles = css<PropAndTheme>`
         }
       }
 
-      div {
+      & > a {
         display: flex;
         flex-flow: column;
         justify-content: flex-start;
         div{
           display: flex;
           flex-flow: row;
+          justify-content: flex-start;
 
           img {
             width: 2rem;
@@ -120,6 +121,7 @@ export const firstDivStyles = css<PropAndTheme>`
         justify-content: space-between;
 
 
+
         button {
           display: block;
           font-size: 1.5em;
@@ -130,13 +132,11 @@ export const firstDivStyles = css<PropAndTheme>`
           height: 3rem;
           top: .2rem;
 
-          ${
-  styles.toggle
+          ${styles.toggle
             && `
             background-color: ${colors.secondary};
             color: white;
-          `
-}
+          `}
           path {
             color: #ffffff !important;
           }

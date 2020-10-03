@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { RouteChildrenProps } from 'react-router-dom';
 import loadable, { LoadableComponent } from '@loadable/component';
-import LoadingSpinner from '<components>/ui/LoadingSpinner/LoadingSpinner';
 import HomePage from '<components>/pages/Home/Home';
 import AboutPage from '<components>/pages/About/About';
 import ContactPage from '<components>/pages/Contact/Contact';
@@ -17,12 +16,9 @@ type RouteData = {
   }[];
 };
 
+
 const RatesPage = loadable(
   () => import('<components>/pages/Rates/Rates'),
-  {
-    // @ts-ignore
-    fallback: LoadingSpinner,
-  },
 );
 
 const Routes: RouteData = {

@@ -46,7 +46,7 @@ const Header: FC<{}> & {
         });
       }
 
-      if (scroll.y <= 150 && styles.background !== 'transparent') {
+      if (!isComponentVisible && scroll.y <= 150 && styles.background !== 'transparent') {
         setStyles({
           ...styles,
           background: 'transparent',
@@ -57,7 +57,7 @@ const Header: FC<{}> & {
     window.addEventListener('scroll', update);
 
     return () => window.removeEventListener('scroll', update);
-  }, [colors.primary, styles, styles.background]);
+  }, [colors.primary, isComponentVisible, styles, styles.background]);
 
 
   const onCLick = useCallback(() => {
@@ -96,13 +96,13 @@ const Header: FC<{}> & {
       <div>
         <Header.FirstDiv styles={styles}>
           <div>
-            <div>
+            <Link to="/">
               <div>
                 <img src={Logo} alt=" " />
                 <h1>LoadAm</h1>
               </div>
               <p>Secure and fast exchanger</p>
-            </div>
+            </Link>
             <button
               arial-label={toggle ? 'close menu' : 'show menu'}
               title={toggle ? 'close menu' : 'show menu'}

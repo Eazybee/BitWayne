@@ -101,11 +101,11 @@ const styles = css`
           padding: 3rem .5rem 1.5rem .5rem;
 
           h1 {
-            color: ${colors.secondary};
+            color: #5c2bab;;
             text-shadow: ${colors.white} 1px 2px 6px;
           }
           p {
-            color: ${colors.secondary};
+            color: #5c2bab;;
             font-weight: 700;
             text-shadow: ${colors.white} 1px 1px 1px;
           }

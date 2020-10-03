@@ -145,10 +145,12 @@ const styles = css`
 
         & >div:first-child {
           justify-content: center;
+          align-items: center;
         }
 
         div.chat.open {
-          position: static;
+          top: auto;
+          animation: popUp .7s ease-out forwards;
         }
       }
 

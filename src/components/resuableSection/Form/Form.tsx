@@ -8,7 +8,7 @@ const Form: FC<Props> & {
 } = ({
   inputs, btnLabel, handleSubmit, btnClassName,
 }: Props) => (
-  <Form.Styled onSubmit={handleSubmit}>
+  <Form.Styled onSubmit={handleSubmit} netlify-honeypot="bot-field">
     <div>
       {inputs.map(({ label, ...inputProps }) => (
         <Input

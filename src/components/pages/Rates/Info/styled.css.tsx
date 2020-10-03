@@ -81,24 +81,6 @@ const styles = css`
         }
       }
     }
-
-    @keyframes popUp {
-      0% {
-        opacity: 0;
-        transform: scale(0);
-      }
-      60% {
-        transform: scale(1.1);
-      }
-
-      75% {
-        transform: scale(0.9);
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
   `}
 `;
 

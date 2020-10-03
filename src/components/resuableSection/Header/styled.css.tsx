@@ -188,9 +188,6 @@ export const firstDivStyles = css<PropAndTheme>`
 
 export const headerStyles = css<PropAndTheme>`
   ${({ theme: { colors }, styles }: PropAndTheme) => `
-  @media screen  and (max-width:1226px) {
-    padding: .5rem  1rem;
-  }
     @media screen  and (max-width:880px) {
 
       & div > div:nth-child(2) {
@@ -215,6 +212,7 @@ export const headerStyles = css<PropAndTheme>`
       align-items: center;
       flex-flow: row wrap;
       transition: .5s linear;
+      padding: 0 1rem;
       width: 74.4em;
     }
     & > div > div:nth-child(2) {

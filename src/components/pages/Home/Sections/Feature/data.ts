@@ -3,26 +3,27 @@ import Box from '<assests>/icons/box.svg';
 import Web from '<assests>/icons/web.svg';
 import Secure from '<assests>/icons/secure.svg';
 
+
 const data = [
   {
     imgSrc: Thumb,
     heading: 'Quality assurance',
-    subHeading: 'Lorem ipsum aliqua jubibie uihisjoe folkpe ejbnis',
+    subHeading: 'We give only the best services and current market rate',
   },
   {
     imgSrc: Box,
     heading: 'Fast payment',
-    subHeading: 'Lorem ipsum aliqua jubibie uihisjoe folkpe ejbnis',
+    subHeading: 'Instant payment into the bank/crypto of your choice upon card verification',
   },
   {
     imgSrc: Web,
     heading: '24/7 availabilty',
-    subHeading: 'Lorem ipsum aliqua jubibie uihisjoe folkpe ejbnis',
+    subHeading: 'We are always here for you when you need us',
   },
   {
     imgSrc: Secure,
     heading: 'Secure payment',
-    subHeading: 'Lorem ipsum aliqua jubibie uihisjoe folkpe ejbnis',
+    subHeading: 'We pay only through tested and trusted platform',
   },
 ];
 

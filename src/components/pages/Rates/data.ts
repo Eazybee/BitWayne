@@ -1,6 +1,6 @@
 import AppleItunesCard from '<assests>/images/apple_store_itunes.jpg';
 import AppleStoresCard from '<assests>/images/apple_store.jpg';
-import OffGamesCard from '<assests>/images/offgames.jpg';
+import OffGamesCard from '<assests>/images/offgames.png';
 import EbayCard from '<assests>/images/ebay.jpg';
 import Amazon from '<assests>/images/amazon.jpg';
 import Steam from '<assests>/images/steam.jpg';

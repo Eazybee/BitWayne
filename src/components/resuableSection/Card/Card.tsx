@@ -11,21 +11,22 @@ type Props = {
   title: string,
   countries: string[],
   onClick: () => any,
+  delay: number,
 };
 
 const Card: FC<Props> & {
-  Styled: StyledComponent<'div', any, {}>;
+  Styled: StyledComponent<'div', any, { delay: number }>;
 } = ({
-  imgSrc, title, countries, onClick,
+  imgSrc, title, countries, onClick, delay,
 }: Props) => (
-  <Card.Styled>
+  <Card.Styled delay={delay}>
     <>
       <div>
         <LazyLoad imgSrc={imgSrc} alt={title} />
         <p>{title}</p>
         <div className="countries">
           {countries.map((countryName) => (
-            <LazyLoad imgSrc={countriesIcon[countryName]} alt={countryName} />
+            <LazyLoad imgSrc={countriesIcon[countryName]} key={countryName} alt={countryName} />
           ))}
         </div>
       </div>

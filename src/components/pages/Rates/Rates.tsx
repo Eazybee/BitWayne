@@ -14,13 +14,14 @@ const RatesPage = () => {
   const cards = useMemo(() => (
     <>
       <ScrollUp />
-      {data.map((card) => (
+      {data.map((card, index: number) => (
         <Card
           key={card.title}
           countries={card.countries}
           imgSrc={card.imgSrc}
           title={card.title}
           onClick={() => setCurent(card.info)}
+          delay={index * 0.3}
         />
       ))}
     </>

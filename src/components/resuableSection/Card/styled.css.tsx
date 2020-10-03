@@ -3,7 +3,7 @@ import { ThemeType } from '<hooks>/useTheme';
 
 
 const styles = css`
-  ${({ theme: { colors } }: { theme: ThemeType }) => `
+  ${({ theme: { colors }, delay }: { theme: ThemeType } & any) => `
     width: 15rem;
     display: flex;
     flex-flow: column;
@@ -14,12 +14,30 @@ const styles = css`
     padding: 2rem 3rem;
     justify-content: space-between;
     margin: 0 1rem 2rem 1rem;
+    border: 1px solid #d696f7;
     transition: .5s;
-    border: 1px solid #efefef;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: ${delay}s;
+    position: relative;
 
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        top: 2.5rem;
+        /* transform: scale(0); */
+        transition: 1s linear;
+      }
+      to {
+        top: 0;
+        /* transform: scale(1); */
+        opacity: 1;
+      }
+    }
     &:hover {
       transform: scale(1.1);
       box-shadow: 0 .3rem 0.9rem 0.7rem rgba(119, 87, 172, 0.25);
+      border: 1px solid #efefef;
 
     }
 

@@ -3,6 +3,7 @@ import { RouteChildrenProps } from 'react-router-dom';
 import loadable, { LoadableComponent } from '@loadable/component';
 import HomePage from '<components>/pages/Home/Home';
 import AboutPage from '<components>/pages/About/About';
+import AuthPage from '<components>/pages/Auth/Auth';
 import ContactPage from '<components>/pages/Contact/Contact';
 
 
@@ -40,8 +41,13 @@ const Routes: RouteData = {
     },
     {
       exact: true,
-      path: '/rates',
+      path: '/cards',
       Component: RatesPage,
+    },
+    {
+      exact: true,
+      path: '/auth',
+      Component: AuthPage,
     },
   ],
 };

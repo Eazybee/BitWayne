@@ -9,6 +9,7 @@ export interface Props {
   placeholder?: string;
   type?: string;
   name?: string;
+  disabled?: boolean;
   onChange: (event: React.ChangeEvent<any>) => any;
 }
 
@@ -20,6 +21,7 @@ const Input = React.forwardRef(({
   label, errMsg, type, name, value, ...rest
 }: Props, ref: any) => (
   <Styled>
+    {errMsg && <p>{errMsg}</p>}
     {type === 'textArea'
       ? (
         <textarea
@@ -43,7 +45,6 @@ const Input = React.forwardRef(({
       )}
 
     <label htmlFor={`${label}${name}`}>{label}</label>
-    {errMsg && <p>{errMsg}</p>}
   </Styled>
 ));
 

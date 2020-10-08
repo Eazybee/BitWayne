@@ -10,7 +10,9 @@ export enum Countries {
   UK = 'UK'
 }
 
-
-/*
-
-*/
+export enum STATUS {
+  IDLE='IDLE',
+  LOADING='LOADING',
+  SUCCESS='SUCCESS',
+  FAILED='FAILED'
+}

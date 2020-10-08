@@ -30,7 +30,7 @@ const Footer: FC<{}> & {
               <a target="_blank" rel="noopener noreferrer" href="tel:+2348126090283">+2348126090283</a>
             </li>
             <li>
-              <a target="_blank" rel="noopener noreferrer" href="mailto:loadAm@somthing.com">loadAm@somthing.com</a>
+              <a target="_blank" rel="noopener noreferrer" href="mailto:loadam.ng.com@gmail.com">loadam.ng.com@gmail.com</a>
             </li>
           </ul>
         </div>
@@ -38,7 +38,7 @@ const Footer: FC<{}> & {
           <h2>Helpful Links</h2>
           <ul>
             <li>
-              <Link to="/rates">Services</Link>
+              <Link to="/cards">Services</Link>
             </li>
             <li>
               <Link to="/contact">Support</Link>
@@ -48,7 +48,7 @@ const Footer: FC<{}> & {
         <div className="social">
           <h2>Social</h2>
           <div>
-            <a target="_blank" rel="noopener noreferrer" href="https://fb.com/">
+            <a target="_blank" rel="noopener noreferrer" href="https://facebook.com/waynelawrence.ukaoha">
               <LazyLoad imgSrc={Facebook} alt="facebook icon" />
             </a>
             <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/ExchangeLoadam">

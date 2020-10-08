@@ -15,7 +15,7 @@ const Header: FC<{}> & {
       <div className="content">
         <h1>Providing you fast and easy process to sell giftcards</h1>
         <p>For speed and payout assurance</p>
-        <Link to="/rates" className="btnE">Sell Now</Link>
+        <Link to="/cards" className="btnE">Sell Now</Link>
       </div>
     </div>
   </Header.Styled>

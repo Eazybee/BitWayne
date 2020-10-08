@@ -24,7 +24,7 @@ const Instruction: FC<{}> & {
           ))}
         </div>
         <div className="btn">
-          <Link to="/rates" className="btnE">Start Trading Now</Link>
+          <Link to="/cards" className="btnE">Start Trading Now</Link>
         </div>
       </div>
     </Instruction.Styled>

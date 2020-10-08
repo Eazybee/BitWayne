@@ -25,7 +25,7 @@ describe('Header', () => {
     expect(getByText('Secure and fast exchanger')).toBeTruthy();
     expect(getByText('Subscribe')).toBeTruthy();
     expect(getByText('Home')).toBeTruthy();
-    expect(getByText('Rates')).toBeTruthy();
+    expect(getByText('Cards')).toBeTruthy();
     expect(getByText('About us')).toBeTruthy();
     expect(getByText('Contact')).toBeTruthy();
   });
@@ -46,7 +46,7 @@ describe('Header', () => {
     expect(menuBtn).toHaveAttribute('title', 'show menu');
   });
 
-  it('menu button shou work', async () => {
+  it('menu button should work', async () => {
     const { getByTitle } = render(
       <MemoryRouter><Header /></MemoryRouter>,
     );

@@ -8,7 +8,7 @@ const data = [
     icon: Mail,
     header: 'Step 1',
     desc:
-      'Pick a card: go to rates and search for the card you want to sell. Click on "LOAD AM" button to read the requirements.',
+      'Pick a card: go to "Cards" page and search for the card you want to sell. Click on "LOAD AM" button to read the requirements.',
   },
   {
     icon: Step2,

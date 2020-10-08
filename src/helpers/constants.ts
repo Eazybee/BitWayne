@@ -23,3 +23,18 @@ export const countriesIcon = {
   [Countries.JAPAN]: JAPAN,
   [Countries.SIGNAPORE]: SIGNAPORE,
 } as Record<any, any>;
+
+
+export const appId = process.env.REACT_APP_FIRE_ID;
+export const apiKey = process.env.REACT_APP_FIRE_KEY;
+export const authDomain = process.env.REACT_APP_FIRE_AUTH_DOMAIN;
+export const databaseURL = process.env.REACT_APP_FIRE_DB;
+export const projectId = process.env.REACT_APP_FIRE_PROJECT_ID;
+export const storageBucket = process.env.REACT_APP_FIRE_STORAGE_KEY;
+export const messagingSenderId = process.env.REACT_APP_FIRE_MSG_SENDER_ID;
+export const measurementId = process.env.REACT_APP_FIRE_MEASUREMNET_ID;
+export const captchaKey = process.env.REACT_APP_GOOGLE_CAPTCHA;
+export const emailUserId = process.env.REACT_APP_EMAIL_USER_ID as string;
+export const emailServiceId = process.env.REACT_APP_EMAIL_SERVICE_ID as string;
+export const emailContactId = process.env.REACT_APP_EMAIL_CONTACT_ID as string;
+

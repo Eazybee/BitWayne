@@ -2,6 +2,7 @@ import React, { createContext, useReducer, useEffect } from 'react';
 import { User } from 'firebase';
 import firebaseApp from '<configs>/firebase';
 import reducer, { ActionType, PayLoad } from './UserReducer';
+import { logOut } from './UserAction';
 
 // @ts-ignore
 export const UserContext: React.Context<{
@@ -17,11 +18,13 @@ const Provider = ({ children }: any) => {
 
   useEffect(() => {
     firebaseApp.auth().onAuthStateChanged((loggedInuser: User | null) => {
-      if (loggedInuser) {
+      if (loggedInuser?.emailVerified) {
         dispatch({
           type: ActionType.LOGIN_USER,
           payload: { user: loggedInuser },
         });
+      } else {
+        logOut(dispatch);
       }
     });
   }, []);

@@ -19,7 +19,7 @@ const rules: EmailAndPassword = {
 const Login = () => {
   const [serverError, setServerError] = useState<string>('');
   const [successMsg, setSuccessMsg] = useState<string>('');
-  const [toggle, setToggle] = useState(false);
+  const [toggle] = useState(false);
   const [loading, setLoading] = useState(false);
   const emailRef = useRef<HTMLElement|null>(null);
 
@@ -50,6 +50,7 @@ const Login = () => {
     setServerError('');
     setSuccessMsg('');
     setLoading(true);
+
     try {
       const {
         user: newUser,
@@ -142,12 +143,12 @@ const Login = () => {
               inputs={inputProps}
               disabled={loading}
             />
-            <div className="toggle">
+            {/* <div className="toggle">
               <p>{!toggle ? "Don't have an account?" : 'Have an account?'}</p>
               <button onClick={() => setToggle(!toggle)} type="button">
                 {!toggle ? 'Sign up' : 'Sign in'}
               </button>
-            </div>
+            </div> */}
           </div>
           {loading ? (
             <div className="loading">

@@ -22,6 +22,8 @@ module.exports = {
       '<components>': path.resolve(__dirname, '../src/components'),
       '<hooks>': path.resolve(__dirname, '../src/hooks'),
       '<helpers>': path.resolve(__dirname, '../src/helpers'),
+      '<configs>': path.resolve(__dirname, '../src/configs'),
+      '<contexts>': path.resolve(__dirname, '../src/contexts'),
       '<styles>': path.resolve(__dirname, '../src/styles'),
       '<assests>': path.resolve(__dirname, '../src/assests')
     }
@@ -38,13 +40,13 @@ module.exports = {
         { from: path.join(__dirname, '../public', 'manifest.json'), to: buildDir },
         { from: path.join(__dirname, '../public', '_redirects'), to: buildDir },
         { from: path.join(__dirname, '../public', 'robot.txt'), to: buildDir },
+        { from: path.join(__dirname, '../public', 'service-worker.js'), to: buildDir },
       ],
     }),
   ],
   module: {
     rules: [
       { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg|ttf|otf)$/,
         loaders: ['file-loader']

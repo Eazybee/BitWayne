@@ -16,6 +16,7 @@ const styled = css<PropAndTheme>`
     padding: 0 0 0 .7rem;
     color: #565a61;
     transition: .5s;
+    width: fit-content;
   }
   textarea, input {
     border: 1px solid #d5dae2;

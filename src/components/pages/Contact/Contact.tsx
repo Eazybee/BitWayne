@@ -1,5 +1,6 @@
-import React, { useRef, useEffect } from 'react';
-import styled from 'styled-components';
+/* eslint-disable no-nested-ternary */
+import React, { useRef, useEffect, useState } from 'react';
+import styled, { css } from 'styled-components';
 // @ts-ignore
 import useFormBee from 'useformbee';
 import Screen from '<components>/resuableSection/Screen/Screen';
@@ -12,6 +13,9 @@ import styles from './styled.css';
 import Form from '<components>/resuableSection/Form/Form';
 import LazyLoad from '<components>/ui/LazyLoad';
 import ScrollUp from '<components>/ui/ScrollUp/ScrollUp';
+import { STATUS } from '<helpers>/typings';
+import LoadingSpinner from '<components>/ui/LoadingSpinner/LoadingSpinner';
+import sendContactMail from '<helpers>/email';
 
 
 export const screenProps = {
@@ -21,34 +25,64 @@ export const screenProps = {
 };
 
 const rules = {
-  nickname: 'required|string',
+  username: 'required|string',
   email: 'required|email',
   message: 'required|string',
 };
 
+type State = {
+  username: string;
+  email: string;
+  message: string;
+};
+
+
 const ContactPage = () => {
-  const nicknameRef = useRef<HTMLInputElement | null | undefined>();
+  const usernameRef = useRef<HTMLInputElement | null | undefined>();
+  const [status, setStatus] = useState<STATUS>(STATUS.IDLE);
+  const [formStatus, setFormStatus] = useState({ error: '', success: '' });
+
+
+  const submit = async (e: State) => {
+    setStatus(STATUS.LOADING);
+    setFormStatus({
+      error: '',
+      success: '',
+    });
+    try {
+      const res = await sendContactMail(e.username, e.email, e.message);
+
+      if (res.status === 200) {
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
+        handleReset();
+        setFormStatus({
+          error: '',
+          success: 'Success: We will get back to asap!',
+        });
+      } else {
+        throw Error();
+      }
+    } catch (error) {
+      setFormStatus({
+        error: 'Oops!, there was an error. Retry! ',
+        success: '',
+      });
+    } finally {
+      setStatus(STATUS.IDLE);
+    }
+  };
+
 
   const {
-    values, handleChange, handleSubmit, errors,
+    values, handleChange, handleSubmit, errors, handleReset,
   } = useFormBee({
-    callback: () => {
-      // setStatus(STATUS.LOADING);
-      // setTimeout(() => {
-      //   setStatus(STATUS.SUCCESS);
-      // }, 4000);
-      // setTimeout(() => {
-      //   setStatus(STATUS.IDLE);
-      //   handleReset();
-      //   setIsComponentVisible(false);
-      // }, 6000);
-    },
+    callback: submit,
     rules,
   });
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      nicknameRef.current?.focus();
+      usernameRef.current?.focus();
     }, 2000);
 
     return () => clearTimeout(timer);
@@ -63,7 +97,8 @@ const ContactPage = () => {
       onChange: handleChange,
       placeholder: 'Wizzy',
       type: 'text',
-      ref: nicknameRef,
+      ref: usernameRef,
+      required: true,
     },
     {
       label: 'Email',
@@ -73,6 +108,7 @@ const ContactPage = () => {
       onChange: handleChange,
       placeholder: 'John@doe.com',
       type: 'email',
+      required: true,
     },
     {
       label: 'Message',
@@ -82,6 +118,7 @@ const ContactPage = () => {
       onChange: handleChange,
       placeholder: 'Hi, i would like...',
       type: 'textArea',
+      required: true,
     },
   ];
 
@@ -93,22 +130,22 @@ const ContactPage = () => {
         <div className="info">
           <ul>
             <li>
-              <a href="https://whatsapp.com/" title="whatsapp">
+              <a href="https://wa.me/+2348126090283" title="whatsapp" target="_blank" rel="noopener noreferrer">
                 <LazyLoad imgSrc={whatsappBg} alt="whatsapp icon" title="Whatsapp" />
               </a>
             </li>
             <li>
-              <a href="https://fb.com/" title="facebook">
+              <a href="https://facebook.com/waynelawrence.ukaoha" title="facebook" target="_blank" rel="noopener noreferrer">
                 <LazyLoad imgSrc={fbBg} alt="facebook icon" title="Facebook" />
               </a>
             </li>
             <li>
-              <a href="https://twitter.com/" title="twitter">
+              <a href="https://twitter.com/ExchangeLoadam" title="twitter" target="_blank" rel="noopener noreferrer">
                 <LazyLoad imgSrc={twitterBg} alt="twitter icon" title="Twitter" />
               </a>
             </li>
             <li>
-              <a href="https://instagram.com/" title="instagram">
+              <a href="https://www.instagram.com/loadam.com.ng/" title="instagram" target="_blank" rel="noopener noreferrer">
                 <LazyLoad imgSrc={instagramBg} alt="instagram icon" title="Instagram" />
               </a>
             </li>
@@ -124,7 +161,7 @@ const ContactPage = () => {
             </div>
             <div>
               <h2>Email</h2>
-              <a href="mailto:loadAm@somthing.com">loadAm@somthing.com</a>
+              <a href="mailto:loadam.ng.com@gmail.com">loadam.ng.com@gmail.com</a>
             </div>
             <div>
               <h2>Phone</h2>
@@ -134,7 +171,38 @@ const ContactPage = () => {
         </div>
         <div className="form">
           <h1>Leave a Message</h1>
-          <Form inputs={inputsProps} btnLabel="Submit" btnClassName="submitBtn" handleSubmit={handleSubmit} />
+          <Form
+            inputs={inputsProps}
+            btnLabel="Submit"
+            btnClassName="submitBtn"
+            handleSubmit={handleSubmit}
+            disabled={status === STATUS.LOADING}
+            {...formStatus}
+          />
+          {status !== STATUS.IDLE
+            ? (
+              <LoadingSpinner
+                text={`${status === STATUS.LOADING ? 'SUBMITTING' : status}`}
+                styles={css`
+                  width: calc(100%);
+                  position: absolute;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  left: 0rem;
+                  border-radius: 1rem;
+                  background: #00000069;
+
+                  p {
+                  color: ${status === STATUS.SUCCESS ? '#0afb0a'
+                  : status === STATUS.FAILED ? 'red' : 'white'};
+                    font-weight: 900;
+                  }
+                `}
+              />
+            )
+            : null}
         </div>
       </ContactPage.Styled>
     </>

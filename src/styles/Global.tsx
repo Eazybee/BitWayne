@@ -39,7 +39,12 @@ body {
   font-size: 16px;
   min-width: 320px;
 }
-
+.success {
+  color: #0afb0a;
+}
+.fail {
+  color: red;
+}
 .LazyLoad{
   width: 100%;
   height: 100%;
@@ -115,7 +120,7 @@ a.btnE {
   100% {
     transform: scale(1);
     opacity: 1;
-    
+
   }
 }
 

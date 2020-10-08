@@ -11,6 +11,8 @@
       "<components>/*": ["./src/components/*"],
       "<hooks>/*": ["./src/hooks/*"],
       "<helpers>/*": ["./src/helpers/*"],
+      "<configs>/*": ["./src/configs/*"],
+      "<contexts>/*": ["./src/contexts/*"],
       "<assests>/*": ["./src/assests/*"],
       "<styles>/*": ["./src/styles/*"]
     },

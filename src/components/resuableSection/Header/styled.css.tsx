@@ -7,6 +7,7 @@ export type Props = {
     hidden: boolean;
     background: string;
   };
+  isAuth?: boolean;
 };
 
 type PropAndTheme = Props & { theme: ThemeType };
@@ -104,7 +105,6 @@ export const firstDivStyles = css<PropAndTheme>`
     }
 
     @media screen  and (max-width:880px){
-
       div {
         margin-right: 0;
       }
@@ -187,11 +187,13 @@ export const firstDivStyles = css<PropAndTheme>`
 `;
 
 export const headerStyles = css<PropAndTheme>`
-  ${({ theme: { colors }, styles }: PropAndTheme) => `
+  ${({
+    theme: { colors }, styles, isAuth,
+  }: PropAndTheme) => `
     @media screen  and (max-width:880px) {
-
       & div > div:nth-child(2) {
-        display: none;
+        display: ${isAuth && styles.toggle ? 'block !important' : 'none'};
+        margin-top: ${isAuth && styles.toggle ? '.5rem' : 0};
       }
     }
 
@@ -216,6 +218,11 @@ export const headerStyles = css<PropAndTheme>`
       width: 74.4em;
     }
     & > div > div:nth-child(2) {
+      button {
+        background: red;
+        padding-top: .1rem;
+        padding-bottom: .1rem;
+      }
       a {
         background: ${colors.deepPurple};
         box-shadow: ${colors.btnShadow};

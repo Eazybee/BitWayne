@@ -65,7 +65,7 @@ describe('Input', () => {
     );
     const input = getByPlaceholderText('Eazybee');
 
-    expect(input.nextSibling?.nextSibling).toBeTruthy();
-    expect(input.nextSibling?.nextSibling).toHaveTextContent('This is an error from beyond');
+    expect(input.previousSibling).toBeTruthy();
+    expect(input.previousSibling).toHaveTextContent('This is an error from beyond');
   });
 });

@@ -29,7 +29,6 @@ const RatesPage = () => {
 
   return (
     <RatesPage.Styled>
-      <span />
       <div>
         {cards}
         {current && <Modal><Info data={current} close={() => setCurent(null)} /></Modal>}

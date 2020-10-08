@@ -12,6 +12,8 @@ import LoadingSpinner from '<components>/ui/LoadingSpinner/LoadingSpinner';
 import style, { loadingStyle } from './styled.css';
 import getScroll from '<helpers>/scroll';
 import Form from '../Form/Form';
+import { STATUS } from '<helpers>/typings';
+import sendContactMail from '<helpers>/email';
 
 
 const rules = {
@@ -20,12 +22,6 @@ const rules = {
   msg: 'required|string',
 };
 
-enum STATUS {
-  IDLE = 'IDLE',
-  LOADING = 'LOADING',
-  FAILED = 'FAILED',
-  SUCCESS = 'SUCCESS'
-}
 
 const Chat: FC<{}> & {
   Styled: StyledComponent<'div', any, any>;
@@ -72,24 +68,32 @@ const Chat: FC<{}> & {
     window.addEventListener('scroll', showHideHandler);
 
     return () => window.removeEventListener('scroll', showHideHandler);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [show, location]);
+  }, [show, location, isHomePage]);
 
+
+  const submit = async (e: any) => {
+    setStatus(STATUS.LOADING);
+    try {
+      const res = await sendContactMail(e.nickname, e.email, e.msg);
+      if (res.status === 200) {
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
+        handleReset();
+        setStatus(STATUS.SUCCESS);
+      }
+    } catch (error) {
+      setStatus(STATUS.FAILED);
+    } finally {
+      setTimeout(() => {
+        setStatus(STATUS.IDLE);
+        setIsComponentVisible(false);
+      }, 6000);
+    }
+  };
 
   const {
-    values, handleChange, handleSubmit, errors,
+    values, handleChange, handleSubmit, errors, handleReset,
   } = useFormBee({
-    callback: () => {
-      // setStatus(STATUS.LOADING);
-      // setTimeout(() => {
-      //   setStatus(STATUS.SUCCESS);
-      // }, 4000);
-      // setTimeout(() => {
-      //   setStatus(STATUS.IDLE);
-      //   handleReset();
-      //   setIsComponentVisible(false);
-      // }, 6000);
-    },
+    callback: submit,
     rules,
   });
 
@@ -103,6 +107,7 @@ const Chat: FC<{}> & {
       placeholder: 'Wizzy',
       type: 'text',
       ref: nicknameRef,
+      required: true,
     },
     {
       label: 'Your Email',
@@ -112,6 +117,7 @@ const Chat: FC<{}> & {
       onChange: handleChange,
       placeholder: 'John@doe.com',
       type: 'email',
+      required: true,
     },
     {
       label: 'Message',
@@ -121,6 +127,7 @@ const Chat: FC<{}> & {
       onChange: handleChange,
       placeholder: 'Hi, i would like...',
       type: 'textArea',
+      required: true,
     },
   ];
 
@@ -134,7 +141,13 @@ const Chat: FC<{}> & {
                 {isOpen
                   ? (
                     <>
-                      <Form inputs={inputsProps} btnLabel="Send" btnClassName="submitBtn" handleSubmit={handleSubmit} />
+                      <Form
+                        inputs={inputsProps}
+                        btnLabel="Send"
+                        btnClassName="submitBtn"
+                        handleSubmit={handleSubmit}
+                        disabled={status === STATUS.LOADING}
+                      />
                       {status !== STATUS.IDLE && <div className="loadingModal" />}
                       {status === STATUS.LOADING && (
                       <LoadingSpinner

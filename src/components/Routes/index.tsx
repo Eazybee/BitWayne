@@ -28,25 +28,35 @@ const Routes = () => (
         />
       )}
     >
-      <Header />
-      <Main>
-        <Switch>
-          {routeData.default.map(({ exact, path, Component }) => (
-            <Route key={path} exact={exact} path={path} component={Component} />
-          ))}
+
+      <Switch>
+        {routeData.default.map(({ exact, path, Component }) => (
           <Route
-            path="*"
-            render={({ location }) => (
-              <Redirect
-                to={{
-                  pathname: '/',
-                  state: { from: location },
-                }}
-              />
+            key={path}
+            exact={exact}
+            path={path}
+            render={(props) => (
+              <>
+                <Header />
+                <Main>
+                  <Component {...props} />
+                </Main>
+              </>
             )}
           />
-        </Switch>
-      </Main>
+        ))}
+        <Route
+          path="*"
+          render={({ location }) => (
+            <Redirect
+              to={{
+                pathname: '/',
+                state: { from: location },
+              }}
+            />
+          )}
+        />
+      </Switch>
       <Footer />
       <Modal><Chat /></Modal>
     </Suspense>

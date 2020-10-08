@@ -33,8 +33,16 @@ const Info: FC<Props> & {
   }, [close, isComponentVisible]);
 
   const {
-    heading, introductions, requirements, images, onClick,
+    heading, introductions, requirements, images,
   } = data;
+
+  const buy = (text: string) => {
+    window.open(encodeURI(
+      `https://wa.me/+2348126090283?text=Hi LoadAm, I want to trade ${text}.
+      I acknowledge i have read the requirements needed to trade ${text}`,
+    ), 'loadamWhatsapp', 'noopener,noreferrer');
+  };
+
   return (
     <>
       <Info.Styled>
@@ -60,7 +68,7 @@ const Info: FC<Props> & {
             </div>
           </div>
           <div>
-            <Button type="button" onClick={onClick}>Sell Now</Button>
+            <Button type="button" onClick={() => buy(heading)}>Sell Now</Button>
           </div>
         </div>
       </Info.Styled>

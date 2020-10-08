@@ -1,10 +1,13 @@
 import React, { FC, useState, useEffect } from 'react';
 // @ts-ignore
 import useFormBee from 'useformbee';
-import styled, { StyledComponent } from 'styled-components';
+import styled, { css, StyledComponent } from 'styled-components';
 import styles, { contentStyles } from './styled.css';
 import Title from '<components>/ui/Title/Title';
 import Form from '<components>/resuableSection/Form/Form';
+import firebaseApp from '<configs>/firebase';
+import LoadingSpinner from '<components>/ui/LoadingSpinner/LoadingSpinner';
+
 
 const Subscription: FC<{}> & {
   Styled: StyledComponent<'section', any, {}>;
@@ -17,18 +20,64 @@ const Subscription: FC<{}> & {
   };
 
   const [customErr, setCustomErr] = useState<{ email?: string; mobileNo?: string }>({});
+  const [formStatus, setFormStatus] = useState({ error: '', success: '' });
+  const [loading, setLoading] = useState(false);
 
   const submit = async (e: any) => {
+    setFormStatus({
+      error: '',
+      success: '',
+    });
     if (e.email === '' && e.mobileNo === '') {
       setCustomErr({
         email: 'Unless Mobile No is provided, Email is required.',
         mobileNo: 'Unless Email is provided, Mobile No is required.',
       });
+    } else {
+      setLoading(true);
+      try {
+        const emailSub = e.email.trim() && await firebaseApp.database()
+          .ref('subscriptions').orderByChild('email')
+          .equalTo(e.email.trim())
+          .once('value');
+
+        const mobileSub = e.mobileNo.trim() && await firebaseApp.database()
+          .ref('subscriptions').orderByChild('mobile')
+          .equalTo(e.mobileNo.trim())
+          .once('value');
+
+        if (emailSub && emailSub.hasChildren()) {
+          throw new Error('Email has been previously subscribed');
+        }
+
+        if (mobileSub && mobileSub.hasChildren()) {
+          throw new Error('Mobile number has been previously subscribed');
+        }
+
+        await firebaseApp.database().ref('subscriptions').push({
+          email: e.email || '',
+          mobile: e.mobileNo || '',
+          username: e.username,
+        });
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
+        handleReset();
+        setFormStatus({
+          error: '',
+          success: 'Successful: Thank you for subscribing',
+        });
+      } catch (error) {
+        setFormStatus({
+          error: error.message,
+          success: '',
+        });
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
   const {
-    values, handleChange, handleSubmit, errors,
+    values, handleChange, handleSubmit, errors, handleReset,
   } = useFormBee({
     callback: submit,
     rules,
@@ -75,8 +124,31 @@ const Subscription: FC<{}> & {
       <p>subscribe to our newsletter for rate updates and bonus</p>
       <Content>
         <div>
-          <Form inputs={inputsProps} btnLabel="Subscribe Now" btnClassName="submitBtn" handleSubmit={handleSubmit} />
-          <div />
+          <div className={`modal ${loading ? 'loading' : ''}`}>
+            {loading
+              ? (
+                <LoadingSpinner
+                  styles={css`
+                height: fit-content;
+
+                p {
+                  color: white;
+                  font-weight: bold;
+                }
+              `}
+                  text="Subscribing"
+                />
+              )
+              : null}
+          </div>
+          <Form
+            inputs={inputsProps}
+            btnLabel="Subscribe Now"
+            btnClassName="submitBtn"
+            handleSubmit={handleSubmit}
+            disabled={loading}
+            {...formStatus}
+          />
         </div>
       </Content>
     </Subscription.Styled>

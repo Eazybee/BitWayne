@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {
   useState, useEffect, FC, useContext, useCallback,
@@ -7,11 +8,15 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import _debounce from 'lodash.debounce';
 import styled, { StyledComponent, ThemeContext } from 'styled-components';
+import { UserContext } from '<contexts>/User';
+import Button from '<components>/ui/Button/Button';
+import { logOut } from '<contexts>/UserAction';
 import { headerStyles, firstDivStyles, Props } from './styled.css';
 import { ThemeType } from '<hooks>/useTheme';
 import getScroll from '<helpers>/scroll';
 import Logo from '<assests>/icons/logo.png';
 import useComponentVisible from '<hooks>/useComponentVisible';
+
 
 interface State {
   toggle: boolean;
@@ -31,33 +36,49 @@ const Header: FC<{}> & {
   });
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const isAuth = location.pathname === '/auth';
+  const transBg = location.pathname === '/cards' || isAuth;
   const { colors } = useContext(ThemeContext) as ThemeType;
+  const { user, dispatch } = useContext(UserContext);
 
   const { toggle } = styles;
 
   useEffect(() => {
-    const update = _debounce(() => {
-      const scroll = getScroll();
+    if (transBg) {
+      setStyles((style) => ({
+        ...style,
+        background: colors.primary,
+      }));
+    }
+  }, [colors.primary, transBg]);
 
-      if (scroll.y > 150 && styles.background !== colors.primary) {
-        setStyles({
-          ...styles,
-          background: colors.primary,
-        });
-      }
 
-      if (!isComponentVisible && scroll.y <= 150 && styles.background !== 'transparent') {
-        setStyles({
-          ...styles,
-          background: 'transparent',
-        });
-      }
-    }, 15);
+  // eslint-disable-next-line consistent-return
+  useEffect(() => {
+    if (!transBg) {
+      const update = _debounce(() => {
+        const scroll = getScroll();
 
-    window.addEventListener('scroll', update);
+        if (scroll.y > 150 && styles.background !== colors.primary) {
+          setStyles({
+            ...styles,
+            background: colors.primary,
+          });
+        }
 
-    return () => window.removeEventListener('scroll', update);
-  }, [colors.primary, isComponentVisible, styles, styles.background]);
+        if (!isComponentVisible && scroll.y <= 150 && styles.background !== 'transparent') {
+          setStyles({
+            ...styles,
+            background: 'transparent',
+          });
+        }
+      }, 15);
+
+      window.addEventListener('scroll', update);
+
+      return () => window.removeEventListener('scroll', update);
+    }
+  }, [colors.primary, isComponentVisible, transBg, styles, styles.background]);
 
 
   const onCLick = useCallback(() => {
@@ -67,13 +88,12 @@ const Header: FC<{}> & {
       background?: string;
     } = {};
 
-    if (toggle) {
+    if (toggle && !transBg) {
       newStyles.background = 'transparent';
     } else {
       newStyles.hidden = toggle;
       newStyles.background = colors.primary;
     }
-
 
     setIsComponentVisible(!toggle);
 
@@ -82,7 +102,7 @@ const Header: FC<{}> & {
       ...newStyles,
       toggle: !toggle,
     }));
-  }, [colors.primary, setIsComponentVisible, toggle]);
+  }, [colors.primary, setIsComponentVisible, toggle, transBg]);
 
   useEffect(() => {
     if (toggle !== isComponentVisible) {
@@ -92,9 +112,9 @@ const Header: FC<{}> & {
 
 
   return (
-    <Header.Styled styles={styles} ref={ref}>
+    <Header.Styled styles={styles} ref={ref} isAuth={user?.emailVerified}>
       <div>
-        <Header.FirstDiv styles={styles}>
+        <Header.FirstDiv styles={styles} isAuth={user?.emailVerified}>
           <div>
             <Link to="/">
               <div>
@@ -118,7 +138,7 @@ const Header: FC<{}> & {
                 <NavLink exact to="/">Home</NavLink>
               </li>
               <li>
-                <NavLink exact to="/rates">Rates</NavLink>
+                <NavLink exact to="/cards">Cards</NavLink>
               </li>
               <li>
                 <NavLink exact to="/about">About us</NavLink>
@@ -132,9 +152,15 @@ const Header: FC<{}> & {
         <div>
           <ul>
             <li>
-              {isHome
-                ? <a href="#subscription" className="btnE">Subscribe</a>
-                : <Link to="/#subscription" className="btnE">Subscribe</Link>}
+              {user
+                ? (
+                  <Button type="button" onClick={() => logOut(dispatch)}>
+                    Log out
+                  </Button>
+                ) : isHome
+                  ? <a href="#subscription" className="btnE">Subscribe</a>
+                  : <Link to="/#subscription" className="btnE">Subscribe</Link>}
+
             </li>
           </ul>
         </div>

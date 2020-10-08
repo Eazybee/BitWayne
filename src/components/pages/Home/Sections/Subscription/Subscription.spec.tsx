@@ -1,8 +1,14 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render, fireEvent } from '<helpers>/tests/testUtils';
+import { render, fireEvent, act } from '<helpers>/tests/testUtils';
 import Subscription from './Subscription';
 
+
+jest.mock('<helpers>/constants', () => ({
+  captchaKey: 'love',
+}));
+
+const promise = Promise.resolve();
 describe('Subscription', () => {
   window.scrollTo = () => {};
   it('should render', async () => {
@@ -22,9 +28,10 @@ describe('Subscription', () => {
   describe('Subscribe Button', () => {
     it('should not submit if username field is empty', async () => {
       const { getByPlaceholderText, getByText } = render(<Subscription />);
-
       fireEvent.click(getByText('Subscribe Now'));
-      const errorParagraph = getByPlaceholderText('Wizzy').nextSibling?.nextSibling;
+      await act(() => promise);
+
+      const errorParagraph = getByPlaceholderText('Wizzy').previousSibling;
       expect(errorParagraph).toHaveTextContent('The username field is required.');
     });
 
@@ -33,9 +40,10 @@ describe('Subscription', () => {
 
       fireEvent.change(getByPlaceholderText('Wizzy'), { target: { value: 'Eazybee' } });
       fireEvent.click(getByText('Subscribe Now'));
+      await act(() => promise);
 
-      const emailErrorParagraph = getByPlaceholderText('John@doe.com').nextSibling?.nextSibling;
-      const phoneNoErrorParagraph = getByPlaceholderText('08012345678').nextSibling?.nextSibling;
+      const emailErrorParagraph = getByPlaceholderText('John@doe.com').previousSibling;
+      const phoneNoErrorParagraph = getByPlaceholderText('08012345678').previousSibling;
       expect(emailErrorParagraph).toHaveTextContent(
         'Unless Mobile No is provided, Email is required.',
       );
@@ -52,10 +60,11 @@ describe('Subscription', () => {
         target: { value: 'eazybee@test.com' },
       });
       fireEvent.click(getByText('Subscribe Now'));
+      await act(() => promise);
 
-      const usernameErrorParagraph = getByPlaceholderText('Wizzy').nextSibling?.nextSibling;
-      const emailErrorParagraph = getByPlaceholderText('John@doe.com').nextSibling?.nextSibling;
-      const phoneNoErrorParagraph = getByPlaceholderText('08012345678').nextSibling?.nextSibling;
+      const usernameErrorParagraph = getByPlaceholderText('Wizzy').previousSibling;
+      const emailErrorParagraph = getByPlaceholderText('John@doe.com').previousSibling;
+      const phoneNoErrorParagraph = getByPlaceholderText('08012345678').previousSibling;
 
       expect(usernameErrorParagraph).toBeFalsy();
       expect(emailErrorParagraph).toBeFalsy();
@@ -68,10 +77,11 @@ describe('Subscription', () => {
       fireEvent.change(getByPlaceholderText('Wizzy'), { target: { value: 'Eazybee' } });
       fireEvent.change(getByPlaceholderText('08012345678'), { target: { value: '08126235426' } });
       fireEvent.click(getByText('Subscribe Now'));
+      await act(() => promise);
 
-      const usernameErrorParagraph = getByPlaceholderText('Wizzy').nextSibling?.nextSibling;
-      const emailErrorParagraph = getByPlaceholderText('John@doe.com').nextSibling?.nextSibling;
-      const phoneNoErrorParagraph = getByPlaceholderText('08012345678').nextSibling?.nextSibling;
+      const usernameErrorParagraph = getByPlaceholderText('Wizzy').previousSibling;
+      const emailErrorParagraph = getByPlaceholderText('John@doe.com').previousSibling;
+      const phoneNoErrorParagraph = getByPlaceholderText('08012345678').previousSibling;
 
       expect(usernameErrorParagraph).toBeFalsy();
       expect(emailErrorParagraph).toBeFalsy();

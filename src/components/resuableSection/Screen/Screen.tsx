@@ -26,7 +26,7 @@ const Screen: FC<Props> & {
                     {' '}
                     All for amazing naira rates and payment is instant.
                   </p>
-                  <Link to="/rates" className="btnE">Sell Now</Link>
+                  <Link to="/cards" className="btnE">Sell Now</Link>
                 </div>
               </>
             )

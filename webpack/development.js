@@ -10,7 +10,6 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
   return prev;
 }, {});
 
-console.log('bee', envKeys);
 module.exports = {
   devServer: {
     historyApiFallback: true,

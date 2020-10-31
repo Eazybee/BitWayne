@@ -88,7 +88,8 @@ const Header: FC<{}> & {
       background?: string;
     } = {};
 
-    if (toggle && !transBg) {
+    const scroll = getScroll();
+    if (toggle && !transBg && scroll.y <= 150) {
       newStyles.background = 'transparent';
     } else {
       newStyles.hidden = toggle;

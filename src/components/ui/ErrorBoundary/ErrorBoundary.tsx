@@ -26,7 +26,7 @@ class ErrorBoundary extends React.Component<Record<string, any>, { hasError: boo
     if (!isDevelopment && hasError) {
       return (
         <FallBack>
-          <p>Oops!, Somthing just broke from our side</p>
+          <p>Oops!, An error occurred, kindly reload the page</p>
         </FallBack>
       );
     }

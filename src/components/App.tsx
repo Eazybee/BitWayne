@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import { css, ThemeProvider } from 'styled-components';
 import useTheme, { ThemeType } from '<hooks>/useTheme';
 import GlobalStyle from '../styles/Global';
 import ErrorBoundary from '<components>/ui/ErrorBoundary/ErrorBoundary';
@@ -21,7 +21,18 @@ const App = () => {
             </UserProvider>
           </ErrorBoundary>
         </ThemeProvider>
-      ) : <LoadingSpinner />}
+      ) : (
+        <LoadingSpinner
+          styles={css`
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          `}
+        />
+)}
     </>
   );
 };

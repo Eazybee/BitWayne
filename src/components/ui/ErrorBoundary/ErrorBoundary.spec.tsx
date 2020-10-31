@@ -28,7 +28,7 @@ describe('Loading Spinner', () => {
     );
 
     expect(getByText('I am healthy')).toBeTruthy();
-    expect(queryByText('Oops Somthing just broke from our side')).toBeFalsy();
+    expect(queryByText('Oops!, An error occurred, kindly reload the page')).toBeFalsy();
     expect(container.firstChild).toContainHTML('<p>I am healthy</p>');
   });
 
@@ -47,9 +47,9 @@ describe('Loading Spinner', () => {
       </ErrorBoundary>,
     );
     expect(queryByText('I am healthy')).toBeFalsy();
-    expect(getByText('Oops!, Somthing just broke from our side')).toBeTruthy();
+    expect(getByText('Oops!, An error occurred, kindly reload the page')).toBeTruthy();
     expect(container.firstChild?.firstChild).toContainHTML(
-      '<p>Oops!, Somthing just broke from our side</p>',
+      '<p>Oops!, An error occurred, kindly reload the page</p>',
     );
   });
 });

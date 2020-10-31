@@ -1,10 +1,12 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { RouteChildrenProps } from 'react-router-dom';
 import loadable, { LoadableComponent } from '@loadable/component';
+import { css } from 'styled-components';
 import HomePage from '<components>/pages/Home/Home';
 import AboutPage from '<components>/pages/About/About';
 import AuthPage from '<components>/pages/Auth/Auth';
 import ContactPage from '<components>/pages/Contact/Contact';
+import LoadingSpinner from '<components>/ui/LoadingSpinner/LoadingSpinner';
 
 
 type RouteData = {
@@ -19,7 +21,16 @@ type RouteData = {
 
 
 const RatesPage = loadable(
-  () => import('<components>/pages/Rates/Rates'),
+  () => import(/* webpackPrefetch: true */'<components>/pages/Rates/Rates'),
+  {
+    fallback: <LoadingSpinner styles={css`
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    `}
+    />,
+  },
 );
 
 const Routes: RouteData = {

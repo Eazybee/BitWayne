@@ -3,7 +3,7 @@ import styled, { StyledComponent } from 'styled-components';
 import { Link } from 'react-router-dom';
 import LazyLoad from '<components>/ui/LazyLoad';
 import styles, { Props } from './styled.css';
-import HomeBg from '<assests>/images/hmBg.png';
+import HomeBg from '<assests>/images/z4.jpg';
 
 
 const Screen: FC<Props> & {

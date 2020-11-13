@@ -27,7 +27,7 @@ const Footer: FC<{}> & {
           <h2>Contact Us</h2>
           <ul>
             <li>
-              <a target="_blank" rel="noopener noreferrer" href="tel:+2348126090283">+2348126090283</a>
+              <a target="_blank" rel="noopener noreferrer" href="tel:+2348082372205">+2348082372205</a>
             </li>
             <li>
               <a target="_blank" rel="noopener noreferrer" href="mailto:loadam.ng.com@gmail.com">loadam.ng.com@gmail.com</a>

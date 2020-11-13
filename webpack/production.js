@@ -4,17 +4,24 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const zopfli = require('@gfx/zopfli');
 const dotenv = require('dotenv');
+const fs = require('fs');
 
-let env = dotenv.config({ path: `${process.cwd()}/.env` })
+
 let envKeys;
 
-if (env) {
-  env = env.parsed;
-  envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(env[next]);
-    return prev;
-  }, {});
-} else {
+try {
+    if(fs.existsSync(`${process.cwd()}/.env.production`)) {
+      let env = dotenv.config({ path: `${process.cwd()}/.env.production` }).parsed;
+
+      envKeys = Object.keys(env).reduce((prev, next) => {
+        prev[`process.env.${next}`] = JSON.stringify(env[next]);
+        return prev;
+      }, {});
+    } else {
+      throw new Error();
+    }
+} catch (e) {
+  console.log('eeB')
   envKeys = {
     'process.env.REACT_APP_FIRE_ID': JSON.stringify(process.env.REACT_APP_FIRE_ID),
     'process.env.REACT_APP_FIRE_KEY': JSON.stringify(process.env.REACT_APP_FIRE_KEY),

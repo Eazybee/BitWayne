@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Screen from '<components>/resuableSection/Screen/Screen';
-import OtherBg from '<assests>/images/pgBg.jpg';
+import OtherBg from '<assests>/images/Z3.jpg';
 import styles from './styled.css';
 import ScrollUp from '<components>/ui/ScrollUp/ScrollUp';
 

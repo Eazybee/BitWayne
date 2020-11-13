@@ -8,7 +8,7 @@ const data = [
     icon: Mail,
     header: 'Step 1',
     desc:
-      'Pick a card: go to "Cards" page and search for the card you want to sell. Click on "LOAD AM" button to read the requirements.',
+      'Pick a card: go to "Cards" page and select the card you want to sell. Click on "LOAD AM" button to read the requirements.',
   },
   {
     icon: Step2,
@@ -26,7 +26,7 @@ const data = [
     icon: Book,
     header: 'Step 4',
     desc:
-      'Get Paid: choose your payment method and get paid instantly into the bank/crypto of your choice upon card verification',
+      'Get Paid: instant payment into your desired bank account or crypto wallet upon card verification',
   },
 ];
 

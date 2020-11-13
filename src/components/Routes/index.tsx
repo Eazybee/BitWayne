@@ -19,16 +19,29 @@ const Routes = () => (
       fallback={(
         <LoadingSpinner
           styles={css`
-            position: fixed;
-            top: 50%;
-            right: 50%;
-            margin-left: 30;
-            margin-bottom: 30;
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            background: pink;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           `}
         />
       )}
     >
 
+      <Route
+        path="*"
+        render={({ location }) => {
+          const path = location;
+          const active = path.hash ? (/#!(\/.*)$/.exec(path.hash) || [])[1] : null;
+          if (active) {
+            return <Redirect to={active} />;
+          }
+          return undefined;
+        }}
+      />
       <Switch>
         {routeData.default.map(({ exact, path, Component }) => (
           <Route

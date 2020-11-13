@@ -25,12 +25,12 @@ const styles = css`
     & > div:first-child {
       width: 100%;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       max-width: 80rem;
     }
 
     .LazyLoad.is-visible{
-      width: ${!otherPg ? 'auto' : '100%'};
+      width: 100%;
     }
 
     & >div> div:first-child {
@@ -73,7 +73,15 @@ const styles = css`
         text-shadow: ${colors.black} 2px 2px 0;
       }
       > div.homePage {
-        width: 30rem;
+        padding: 0 2rem 0;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        width: 100%;
+
+        h1, p {
+          text-align: center;
+        }
 
         p {
           font-size: 1.5rem;
@@ -81,6 +89,7 @@ const styles = css`
           color: ${colors.white};
           text-shadow: ${colors.black} 1px 1px 0;
         }
+
         a{
           background: ${colors.deepPurple};
           color: ${colors.white};
@@ -99,14 +108,10 @@ const styles = css`
       }
 
       & > div > div:last-child {
-        max-width: ${!otherPg ? '82rem' : '100%'};
       }
     }
 
     @media screen  and (max-width:1350px){
-      & > div div.LazyLoad img {
-        filter: ${!otherPg ? 'blur(0.5px) brightness(0.8) contrast(0.9)' : ''};
-      }
       & > div > div:last-child {
         max-width: 77rem;
         justify-content: center;

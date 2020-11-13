@@ -38,7 +38,7 @@ const Info: FC<Props> & {
 
   const buy = (text: string) => {
     window.open(encodeURI(
-      `https://wa.me/+2348126090283?text=Hi LoadAm, I want to trade ${text}.
+      `https://wa.me/+2348082372205?text=Hi LoadAm, I want to trade ${text}.
       I acknowledge i have read the requirements needed to trade ${text}`,
     ), 'loadamWhatsapp', 'noopener,noreferrer');
   };

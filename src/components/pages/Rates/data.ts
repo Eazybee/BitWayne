@@ -11,6 +11,12 @@ import SephoraCard from '<assests>/images/sephora.jpg';
 import NikeCard from '<assests>/images/nike.jpg';
 import OneVanilla from '<assests>/images/vanila.jpg';
 import Master from '<assests>/images/master.jpg';
+import Saks from '<assests>/images/saks.jpg';
+import Razer from '<assests>/images/razer.jpg';
+import NordStrom from '<assests>/images/nordstrom.jpg';
+import FootLocker from '<assests>/images/footlocker.jpg';
+import Walmart from '<assests>/images/walmart.jpg';
+import WalmartVisa from '<assests>/images/walmart_visa.jpg';
 import Itunes1 from '<assests>/images/card_sample/itunes1.jpg';
 import Itunes2 from '<assests>/images/card_sample/itunes2.jpg';
 import Steam1 from '<assests>/images/card_sample/steam1.jpg';
@@ -295,6 +301,132 @@ const cards = [
       onClick: () => {},
     },
   },
+  {
+    imgSrc: Saks,
+    title: 'SAKS GIFT CARD',
+    countries: [
+      Countries.UK, Countries.JAPAN, Countries.USA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
+    info: {
+      heading: 'SAKS GIFT CARD',
+      introductions: [
+        'Saks gift cards are used to make purchases on Saks Fifth avenue store, which is a big online store for accessories and clothes for both sexes. They are non-reloadable and carry specific amounts within them.',
+        'Because it is used for purchases online, this card takes between 1-3hrs to redeem.',
+      ],
+      requirements: [
+        'We buy denominations ranging from $300-$500 with higher denominations having better price values than lower denominations',
+      ],
+      images: [],
+      onClick: () => {},
+    },
+  },
+  {
+    imgSrc: Razer,
+    title: 'RAZER GOLD GIFT CARD',
+    countries: [
+      Countries.EUROPEAN_UNION, Countries.JAPAN, Countries.MEXICO,
+      Countries.SOUTH_AFRICA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
+    info: {
+      heading: 'RAZER GOLD GIFT CARD',
+      introductions: [
+        'Razer gold Giftcards are gaming cards like steam and used especially in Asia. Asia\'s top gaming community and payment systems.',
+        'Usually takes between 5-20min to redeem.',
+      ],
+      requirements: [
+        'We buy denominations ranging from $100-$500 with higher denominations having better price values than lower denominations',
+      ],
+      images: [],
+      onClick: () => {},
+    },
+  },
+  {
+    imgSrc: NordStrom,
+    title: 'NORDSTROM GIFT CARD',
+    countries: [
+      Countries.EUROPEAN_UNION, Countries.JAPAN, Countries.MEXICO,
+      Countries.SOUTH_AFRICA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
+    info: {
+      heading: 'NORDSTROM GIFT CARD',
+      introductions: [
+        'Nordstrom gift cards are used to make purchases on Nordstorm, which is a big US store for designer clothes, sneakers and shoes.',
+        'They are non-reloadable and carry specific amounts within them.',
+        'Because it is used for purchases online, this card takes between 1-3hrs to redeem.',
+      ],
+      requirements: [
+        'We buy denominations ranging from $100-$500 with higher denominations having better price values than lower denominations',
+        'Click on the link to confirm the card balance https://www.nordstrom.com/nordstrom-gift-cards',
+      ],
+      images: [],
+      onClick: () => {},
+    },
+  },
+  {
+    imgSrc: WalmartVisa,
+    title: 'WALMART VISA GIFT CARD',
+    countries: [
+      Countries.EUROPEAN_UNION, Countries.JAPAN, Countries.MEXICO,
+      Countries.SOUTH_AFRICA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
+    info: {
+      heading: 'WALMART VISA GIFT CARD',
+      introductions: [
+        'Walmart visa giftcard is a prepaid card that serves as a secure and convenient way to trade safe online. It is a reloadable alternative to a regular bank account. It is a card that is used for money management.',
+        'Because it is a prepaid card that needs to be used, this card takes between 2-3hrs to redeem in the store.',
+      ],
+      requirements: [
+        'We need Walmart visa Giftcards with start code "4852 only"',
+        'We buy denominations ranging from $100-$500.',
+      ],
+      images: [WalmartVisa],
+      onClick: () => {},
+    },
+  },
+  {
+    imgSrc: Walmart,
+    title: 'WALMART GIFT CARD',
+    countries: [
+      Countries.EUROPEAN_UNION, Countries.JAPAN, Countries.MEXICO,
+      Countries.SOUTH_AFRICA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
+    info: {
+      heading: 'WALMART VISA GIFT CARD',
+      introductions: [
+        'Walmart gift cards are used to make purchases on Walmart store. They are non-reloadable and carry specific amounts within them.',
+        'Because it is used for purchases online, this card takes between 1 - 3hrs to redeem in the store.',
+      ],
+      requirements: [
+        'We need Walmart Giftcards with start code "6181 only"',
+        'We buy denominations ranging from $100-$500 with higher denominations having better price values than lower denominations',
+      ],
+      images: [],
+      onClick: () => {},
+    },
+  },
+  {
+    imgSrc: FootLocker,
+    title: 'FOOTLOCKER GIFT CARD',
+    countries: [
+      Countries.EUROPEAN_UNION, Countries.JAPAN, Countries.MEXICO,
+      Countries.SOUTH_AFRICA, Countries.AUSTRALIA, Countries.CANADA,
+    ],
+    info: {
+      heading: 'FOOTLOCKER GIFT CARD',
+      introductions: [
+        `Footlocker gift cards are used to make purchases on Footlocker store, which is a big US store for sneakers and shoes.
+        They are non-reloadable and carry specific amounts within them.`,
+        'They are non-reloadable and carry specific amounts within them.',
+        'Because it is used for purchases online, this card takes between 1-3hrs to redeem.',
+      ],
+      requirements: [
+        'We buy denominations ranging from $300-$500 with higher denominations having better price values than lower denominations',
+      ],
+      images: [],
+      onClick: () => {},
+    },
+  },
 ];
+
 
 export default cards;

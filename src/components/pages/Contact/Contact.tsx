@@ -130,7 +130,7 @@ const ContactPage = () => {
         <div className="info">
           <ul>
             <li>
-              <a href="https://wa.me/+2348126090283" title="whatsapp" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/+2348082372205" title="whatsapp" target="_blank" rel="noopener noreferrer">
                 <LazyLoad imgSrc={whatsappBg} alt="whatsapp icon" title="Whatsapp" />
               </a>
             </li>
@@ -165,7 +165,7 @@ const ContactPage = () => {
             </div>
             <div>
               <h2>Phone</h2>
-              <a href="tel:+2348126090283">+2348126090283</a>
+              <a href="tel:+2348082372205">+2348082372205</a>
             </div>
           </div>
         </div>
